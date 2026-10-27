@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" role="img" aria-labelledby="t d"><title id="t">Ilustración educativa de una chinche triatomina</title><desc id="d">Dibujo esquemático: insecto de seis patas, antenas y cabeza alargada, con cuerpo ovalado oscuro y bordes rojizos.</desc>
+<g transform="translate(280 285) rotate(-20)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g stroke="#4a3828" stroke-width="13"><path d="M-46 -56 L-135 -120 L-189 -113"/><path d="M-52 3 L-151 -2 L-214 52"/><path d="M-51 64 L-141 142 L-179 220"/><path d="M46 -56 L135 -120 L189 -113"/><path d="M52 3 L151 -2 L214 52"/><path d="M51 64 L141 142 L179 220"/></g>
+<g stroke="#977c59" stroke-width="5"><path d="M-135 -120 L-189 -113 M-151 -2 L-214 52 M-141 142 L-179 220 M135 -120 L189 -113 M151 -2 L214 52 M141 142 L179 220"/></g>
+<path d="M-78 -70 C-91 -25 -91 90 -60 147 Q0 222 60 147 C91 90 91 -25 78 -70 C47 -107 -47 -107 -78 -70Z" fill="#382f28" stroke="#261f1a" stroke-width="9"/>
+<path d="M-66 -48 C-74 -2 -71 98 -47 136 M66 -48 C74 -2 71 98 47 136" stroke="#bd8760" stroke-width="18" stroke-dasharray="16 16"/>
+<path d="M-62 -77 C-40 -60 -15 4 0 129 C15 4 40 -60 62 -77 C49 -101 -49 -101 -62 -77Z" fill="#776450" stroke="#34271f" stroke-width="6"/><path d="M0 -80L0 129" stroke="#bfaa87" stroke-width="5"/><path d="M-58 -67 C-26 -41 -14 26 0 129 M58 -67 C26 -41 14 26 0 129" stroke="#d2b58d" stroke-width="4"/>
+<path d="M-47 -89 Q0 -128 47 -89 L34 -126 Q0 -143 -34 -126Z" fill="#33281f" stroke="#261e19" stroke-width="7"/>
+<path d="M-18 -128 L-15 -195 Q0 -223 15 -195 L18 -128Z" fill="#514033" stroke="#261e19" stroke-width="6"/>
+<circle cx="-18" cy="-182" r="8" fill="#111"/><circle cx="18" cy="-182" r="8" fill="#111"/>
+<path d="M-11 -205 L-29 -261 L-85 -284 M11 -205 L29 -261 L85 -284" stroke="#49382b" stroke-width="5"/>
+<path d="M0 -209 L0 -255" stroke="#4b382a" stroke-width="5"/>
+</g></svg>
