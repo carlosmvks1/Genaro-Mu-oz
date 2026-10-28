@@ -17,7 +17,8 @@ for (const { path, slug } of paths) {
     await expect(page.locator('header .identity')).toBeVisible();
     await expect(page.locator('footer')).toBeVisible();
     await page.locator('footer').scrollIntoViewIfNeeded();
-    await page.evaluate(() => document.fonts.ready);
+    await page.evaluate(async () => { await document.fonts.ready; window.scrollTo({top:0,left:0,behavior:'instant'}); });
+    await page.waitForTimeout(150);
     await page.screenshot({ path: testInfo.outputPath(`${slug}-${testInfo.project.name}.png`), fullPage: true, animations: 'disabled' });
     const overflow = await page.evaluate(() => ({
       width: window.innerWidth,
