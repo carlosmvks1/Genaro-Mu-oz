@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.addEventListener('click',event=>{
     if(n.classList.contains('open') && !n.contains(event.target) && !b.contains(event.target))closeMenu();
   });
-  window.addEventListener('resize',()=>{if(window.innerWidth>790 && n.classList.contains('open'))closeMenu();});
+  window.addEventListener('resize',()=>{if(window.innerWidth>950 && n.classList.contains('open'))closeMenu();});
  }
  document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
  const quiz=document.querySelector('#knowledge-check');const feedback=document.querySelector('#quiz-feedback');
