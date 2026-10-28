@@ -30,7 +30,7 @@ npm run check
 npm run build
 npm run dev
 ```
-Para producción, generar y versionar `package-lock.json` y pasar a `npm ci` en todos los flujos.
+El archivo `package-lock.json` está versionado y el workflow de validación usa `npm ci`.
 
 ## Gobierno clínico
 Los artículos tienen tres estados: `borrador`, `revision-clinica`, `aprobado`.
@@ -48,4 +48,4 @@ Los archivos HTML anteriores se mantienen como referencia de migración y no for
 - Confirmación de servicios, horarios, fotografía y contactos por la dirección.
 - Migrar la totalidad del micrositio de TB a la colección (por ahora es un enlace externo).
 - Integrar pruebas de regresión visual Playwright y CMS editorial cuando la estructura esté estable.
-- Completar lockfile y política de dependencias.
+- Revisar periódicamente actualizaciones de dependencias y vulnerabilidades.
