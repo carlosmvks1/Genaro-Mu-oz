@@ -1,7 +1,7 @@
 # Fase 3 · Contenido institucional y biblioteca de salud
 
 ## Objetivos
-1. Dar al CIS una fuente única para datos operativos verificables.
+1. Dar al CIS una fuente única para datos operativos verificables, expuesta en `/el-centro/`.
 2. Integrar una ficha de tuberculosis dentro de Astro, con el mismo diseño de Chagas.
 3. Mantener trazabilidad de bibliografía y revisión editorial.
 
@@ -14,7 +14,7 @@
 - Servicios.
 - Fecha y responsable de la última revisión institucional.
 
-No poner información no verificada. Cada valor debe incluir `valor`, `verificadoEl` y `validadoPor`.
+La portada y la ficha `/el-centro/` leen los mismos datos desde la fuente central.\n\nNo poner información no verificada. Cada valor debe incluir `valor`, `verificadoEl` y `validadoPor`.
 Los campos con `null` no se mostrarán como información confirmada.
 
 ## Educación sanitaria
