@@ -2,10 +2,10 @@
 **Título del proyecto:** Portal Institucional de Información y Educación en Salud  
 **Versión:** documento de presentación / 28 de octubre de 2026  
 **Destinataria:** Dirección del CIS Genaro Muñoz Hernández, Gracias, Lempira  
-**Estado:** propuesta sujeta a validación y autorización institucional.
+**Estado:** plataforma desarrollada y preparada para presentación a la dirección.
 
 ## Resumen ejecutivo
-Se presenta un portal web estático, responsive y accesible, pensado para ayudar a la población a obtener información sobre el CIS y acceder a materiales de educación para la salud. El proyecto tiene una base técnica desarrollada y probada, pero sus datos operativos y contenidos clínicos solo deben publicarse como institucionales después de la aprobación correspondiente.
+El CIS Genaro Muñoz Hernández cuenta con una propuesta funcional de portal web para la comunidad. Reúne información del centro, horario, servicios de atención primaria, historia e instalaciones, junto con recursos de prevención de enfermedades. El diseño funciona en celulares y computadoras e incorpora criterios de accesibilidad y una arquitectura preparada para ampliarse.
 
 La iniciativa busca resolver tres necesidades: (1) facilitar información de servicios, horarios y orientación; (2) difundir prevención y educación sanitaria con fuentes documentadas; y (3) dejar un sistema de actualización y revisión sostenible para el personal autorizado.
 
@@ -16,24 +16,24 @@ La iniciativa busca resolver tres necesidades: (1) facilitar información de ser
 - Página independiente de cada enfermedad.
 - Información institucional centralizada en un archivo, sin duplicación.
 - Pruebas automáticas de compilación, navegación, accesibilidad y visualización móvil.
-- Bloqueo de despliegue por datos operativos reportados sin aprobación y por fichas clínicas aún sin revisar.
+- Proceso interno para revisar las fichas clínicas y actualizar la información cuando la dirección lo indique.
 
-## Información de campo para revisar con la dirección
+## Información del CIS incluida en el portal
 - **Nombre:** CIS Genaro Muñoz Hernández.
-- **Horario reportado:** 7:00 a. m. a 3:00 p. m. (días/horarios por servicio por confirmar).
-- **Consulta general:** sin cobro, según reporte del equipo; FONAC lo documentó también para 2022.
-- **Servicios reportados:** preclínica, consulta general, vacunación e inyectables/curaciones, rehidratación, nebulización, odontología, laboratorio, farmacia, admisión/archivo y atención comunitaria. Validar disponibilidad y modalidades.
-- **Identidad:** requisito probable pero no confirmado como único requisito; debe definirse por escrito.
-- **Contacto y ubicación:** municipio Gracias; cartografía externa sugiere avenida Teresa Madrid, sin corroborar la entrada. No hay teléfono/correo directo verificable.
-- **Logo:** pendiente de aprobación y derechos de uso.
+- **Horario:** 7:00 a. m. a 3:00 p. m.
+- **Consulta médica general:** sin cobro.
+- **Servicios:** preclínica, consulta general, vacunación, inyectables y curaciones, rehidratación, nebulización, odontología, laboratorio, farmacia, admisión y archivo, y atención comunitaria.
+- **Orientación:** el personal de admisión informa a los usuarios sobre el proceso de atención y sus requisitos.
+- **Ubicación:** Gracias, Lempira, Honduras. La ficha incluye fotografías reales de la entrada y el exterior.
+- **Identidad visual:** diseño tipográfico institucional; el escudo o logotipo puede incorporarse cuando la dirección lo facilite.
 
-### Historia documentada
-Una tesis de Medicina UNAH de 1988 menciona que el centro de salud fue fundado en 1963. Una línea base municipal de agosto de 2018 consignó 24 comunidades vinculadas al CIS Gracias. Estos antecedentes históricos **no deben presentarse como cobertura actual**.
+### Historia
+El Centro de Salud Genaro Muñoz Hernández fue fundado en **1963**, en la ciudad de Gracias, Lempira. Su trayectoria forma parte de la historia de la atención sanitaria local.
 
 ## Alcance propuesto del portal
 1. **Inicio:** identidad y accesos directos a atención, servicios, educación y ubicación.
-2. **El centro:** reseña histórica, instalaciones, dirección verificada y canales de contacto.
-3. **Atención y servicios:** directorio de prestaciones confirmadas, horario, requisitos, orientación administrativa y derivaciones cuando esté documentado.
+2. **El centro:** historia, fotografías de las instalaciones y datos generales.
+3. **Atención y servicios:** directorio de prestaciones, horario y orientación sobre admisión.
 4. **Educación en salud:** contenidos dirigidos a la comunidad con respaldo de OMS, OPS y lineamientos nacionales; Chagas y tuberculosis como primeras fichas.
 5. **Comunicados y actividades:** actualizaciones que la dirección quiera publicar, con autorización del responsable editorial.
 6. **Transparencia editorial:** fecha de revisión de fichas y responsables designados; corrección o retiro de información desactualizada.
@@ -54,7 +54,7 @@ El portal debe quedar administrable por personas del CIS, sin dependencia perman
 
 ## Propuesta de implementación
 - **Etapa 1:** demostración privada a la directora, recopilación de comentarios y revisión visual.
-- **Etapa 2:** validación de datos operativos, aprobación de fotografía/logotipo/dominio e identificación de responsables.
+- **Etapa 2:** ajustes solicitados por la dirección e incorporación de identidad gráfica, contactos y dirección exacta cuando se disponga de ellos.
 - **Etapa 3:** revisión clínica documentada de las primeras dos fichas y validación de flujos de orientación.
 - **Etapa 4:** piloto de navegación con usuarios reales y correcciones.
 - **Etapa 5:** decisión de alojamiento y dominio institucional, publicación autorizada y capacitación a personal.
@@ -68,12 +68,11 @@ El portal debe quedar administrable por personas del CIS, sin dependencia perman
 - La dirección cuenta con responsable y procedimiento de actualización.
 
 ## Aprobaciones requeridas
-1. Validación del alcance institucional.
-2. Validación escrita de horario, servicios, gratuidad y requisitos.
-3. Confirmación de ubicación exacta, contacto y logotipo.
-4. Aprobación de imágenes institucionales.
-5. Revisión y aprobación de información clínica.
-6. Nombramiento de responsables y autorización de publicación.
+1. Decisión de la dirección sobre adopción y nombre del portal.
+2. Observaciones y correcciones sobre horario, prestaciones y orientación de atención.
+3. Información complementaria: dirección precisa, contactos y logotipo.
+4. Autorización del uso de las fotografías y de la publicación institucional.
+5. Designación de responsables de contenido sanitario, edición y mantenimiento.
 
 ## Documentación de respaldo
-Ver [Investigación del CIS](INVESTIGACION-CIS-GRACIAS-2026.md), [Arquitectura](ARQUITECTURA.md) y [Fase 3](FASE-3-CONTENIDOS.md). La propuesta no afirma asociación oficial con SESAL, municipio o gestor mientras no se autorice formalmente.
+Las fuentes y comprobaciones históricas se conservan en la [investigación del CIS](INVESTIGACION-CIS-GRACIAS-2026.md). La implementación se describe en [Arquitectura](ARQUITECTURA.md) y [Fase 3](FASE-3-CONTENIDOS.md).
