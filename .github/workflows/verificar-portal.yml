@@ -1,0 +1,23 @@
+name: Verificación estructural del portal
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - redesign/portada-institucional
+
+permissions:
+  contents: read
+
+jobs:
+  estructura:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener archivos
+        uses: actions/checkout@v4
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar páginas y navegación
+        run: node scripts/check-site.mjs
