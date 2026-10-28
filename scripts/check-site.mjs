@@ -3,7 +3,7 @@
  * evaluación WCAG ni revisión clínica.
  * Ejecutar: node scripts/check-site.mjs
  */
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -24,7 +24,10 @@ for (const page of pages) {
   for (const attr of attrs) {
     if (/^(https?:|mailto:|tel:|data:)/.test(attr)) continue;
     const [rawPath, rawAnchor] = attr.split('#');
-    const targetPath = rawPath.split('?')[0] || page;
+    // Las páginas compiladas usan el prefijo público de GitHub Pages.
+    let targetPath = rawPath.split('?')[0].replace(/^\/Genaro-Mu-oz\//, '') || (rawPath ? 'index.html' : page);
+    if (existsSync(resolve(base,targetPath)) && statSync(resolve(base,targetPath)).isDirectory())
+      targetPath = `${targetPath.replace(/\/$/, '')}/index.html`;
     if (!existsSync(resolve(base,targetPath))) {
       failures.push(`${page}: recurso no encontrado ${attr}`);
       continue;
