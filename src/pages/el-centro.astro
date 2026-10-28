@@ -34,6 +34,12 @@ import { fotosCentro } from '../data/fotografias';
           {centro.servicios
             ? <ul class="directory-services">{centro.servicios.valor.map(servicio=><li>{servicio}</li>)}</ul>
             : <p>Para conocer los servicios, los requisitos de atención y los horarios vigentes, solicitá orientación directamente en el establecimiento.</p>}
+          {centro.consultaGeneralSinCobro?.valor === true && <p>La consulta general no tiene cobro.</p>}
+          {centro.requisitosAtencion
+            ? <p>Documentos para solicitar atención: {centro.requisitosAtencion.valor.join(', ')}.</p>
+            : <p>Para confirmar los documentos requeridos, consultá en admisión.</p>}
+          {(centro.horario?.estado === 'reportado' || centro.servicios?.estado === 'reportado') &&
+            <p class="directory-updated">Horario y cartera de servicios reportados por un colaborador del proyecto; pendientes de aprobación institucional para su publicación definitiva.</p>}
           {centro.ultimaRevisionInstitucional && <p class="directory-updated">Última validación institucional: {centro.ultimaRevisionInstitucional.verificadoEl}.</p>}
         </div>
         <aside class="directory-aside">
