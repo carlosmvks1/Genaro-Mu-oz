@@ -40,7 +40,7 @@ for (const { path, slug } of paths) {
 test('móvil y tableta: el menú abre, navega y cierra con Escape', async ({page}, testInfo) => {
   test.skip(testInfo.project.name === 'escritorio-1440', 'En escritorio se utiliza navegación horizontal');
   await page.goto('./');
-  const button = page.getByRole('button', {name:/Menú/});
+  const button = page.locator('[data-menu]');
   await expect(button).toBeVisible();
   await expect(button).toHaveAttribute('aria-expanded', 'false');
   await button.click();
