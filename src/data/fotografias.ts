@@ -11,5 +11,7 @@ const assets = import.meta.glob<string>('../assets/fotos/*.avif', {
 
 export const fotosCentro = {
   entrada: assets['../assets/fotos/cis-entrada.avif'] ?? null,
+  entrada1200: assets['../assets/fotos/cis-entrada-1200.avif'] ?? null,
+  entrada1920: assets['../assets/fotos/cis-entrada-1920.avif'] ?? null,
   exteriores: assets['../assets/fotos/cis-exteriores.avif'] ?? null,
 };

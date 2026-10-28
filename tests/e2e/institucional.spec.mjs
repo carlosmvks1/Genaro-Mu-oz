@@ -16,6 +16,8 @@ test('portada: la fachada real tiene prioridad y el título queda fuera de la im
   await expect(photo).toHaveAttribute('src', /cis-entrada.*\.avif$/);
   await expect(photo).toHaveAttribute('loading', 'eager');
   await expect(photo).toHaveAttribute('fetchpriority', 'high');
+  await expect(photo).toHaveAttribute('width', '4160');
+  await expect(photo).toHaveAttribute('srcset', /1200w, .*1920w, .*4160w/);
   await expect(photo).toHaveAttribute('alt', /Fachada y acceso al CIS/);
   await expect.poll(() => photo.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
   const titleBox = await title.boundingBox();

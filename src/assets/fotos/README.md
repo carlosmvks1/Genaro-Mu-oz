@@ -6,7 +6,9 @@ Este directorio contiene dos fotografías enviadas para el portal el 28 de octub
 - `cis-exteriores.avif`: vista exterior del edificio, vegetación y ventanas; usado en «El centro».
 
 ## Optimización
-Ambas imágenes están en AVIF (1200 × 900 píxeles) y no contienen metadatos EXIF personales. Los originales en PNG se mantienen fuera del repositorio. El código de `src/data/fotografias.ts` importa los archivos y los muestra solo cuando existen.
+Las imágenes están en AVIF y no contienen metadatos EXIF personales. Los originales en PNG se mantienen fuera del repositorio. El código de `src/data/fotografias.ts` importa los archivos y los muestra solo cuando existen.
+
+La fotografía de entrada se volvió a exportar desde el original de 4160 × 3120 píxeles adjuntado por el usuario, conservando esa resolución y con calidad AVIF 90. Las variantes `cis-entrada-1200.avif` (1200 × 900) y `cis-entrada-1920.avif` (1920 × 1440) se exportan directamente del mismo original con calidad 90. La portada ofrece las tres mediante `srcset`: el navegador elige según el tamaño y la densidad de pantalla; en móvil se contempla el ancho real de la foto antes del recorte panorámico. No se aplica ampliación artificial ni reconstrucción de detalles. La foto de exteriores conserva 1200 × 900 píxeles.
 
 ## Criterios para la publicación
 - Confirmar con la dirección que las fotos están autorizadas para difusión.
