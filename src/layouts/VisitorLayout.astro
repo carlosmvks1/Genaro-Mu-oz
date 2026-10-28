@@ -1,0 +1,23 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { siteUrl } from '../lib/paths';
+import { nombreCompleto } from '../data/centro';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const links = [['nuestros-servicios/', 'Nuestros servicios'], ['antes-de-acudir/', 'Antes de acudir'], ['ubicacion-y-contacto/', 'Ubicación y contacto']];
+---
+<BaseLayout title={`${title} | ${nombreCompleto}`} description={description}>
+  <main id="contenido">
+    <section class="article-hero"><div class="container">
+      <nav class="breadcrumb" aria-label="Ruta de navegación"><a href={siteUrl('')}>Inicio</a> / {title}</nav>
+      <p class="section-label">Información para usuarios</p><h1>{title}</h1><p>{description}</p>
+    </div></section>
+    <section class="section"><div class="container directory-grid">
+      <div><slot /></div>
+      <aside class="directory-aside"><h2>Prepará tu visita</h2>
+        <ul>{links.map(([path, label]) => <li><a href={siteUrl(path)} aria-current={Astro.url.pathname === siteUrl(path) ? 'page' : undefined}>{label}</a></li>)}</ul>
+        <p><a href={siteUrl('el-centro/')}>Conocé el establecimiento</a></p>
+      </aside>
+    </div></section>
+  </main>
+</BaseLayout>

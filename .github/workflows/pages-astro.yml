@@ -55,7 +55,7 @@ jobs:
           touch .nojekyll
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- index.html 404.html _astro enfermedades el-centro .nojekyll
+          git add -A -- index.html 404.html _astro enfermedades el-centro nuestros-servicios antes-de-acudir ubicacion-y-contacto .nojekyll
           if ! git diff --cached --quiet; then
             git commit -m "chore(pages): sincronizar HTML público generado por Astro"
             git push origin HEAD:main

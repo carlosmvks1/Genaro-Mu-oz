@@ -21,7 +21,7 @@ export default defineConfig({
     { name: 'escritorio-1440', use: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 } },
   ],
   webServer: {
-    command: 'npm run preview -- --host 127.0.0.1 --port 4321',
+    command: 'node node_modules/astro/bin/astro.mjs preview --host 127.0.0.1 --port 4321',
     url: BASE,
     reuseExistingServer: false,
     timeout: 90_000,

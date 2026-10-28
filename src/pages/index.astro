@@ -40,9 +40,9 @@ const enfermedades = (await getCollection('enfermedades'))
       <div class="container">
         <h2 id="acceso-title" class="access-title">Accesos principales</h2>
         <div class="access-grid">
-          <a class="access-card" href="#centro"><span class="access-index" aria-hidden="true">01</span><span><strong>El establecimiento</strong><small>Información general del CIS</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
-          <a class="access-card" href="#atencion"><span class="access-index" aria-hidden="true">02</span><span><strong>Orientación para usuarios</strong><small>Ubicación e información de atención</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
-          <a class="access-card" href="#biblioteca"><span class="access-index" aria-hidden="true">03</span><span><strong>Educación en salud</strong><small>Enfermedades y prevención</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+          <a class="access-card" href={siteUrl('nuestros-servicios/')}><span class="access-index" aria-hidden="true">01</span><span><strong>Nuestros servicios</strong><small>Atención primaria para la comunidad</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+          <a class="access-card" href={siteUrl('antes-de-acudir/')}><span class="access-index" aria-hidden="true">02</span><span><strong>Antes de acudir</strong><small>Horario y orientación para tu visita</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+          <a class="access-card" href={siteUrl('ubicacion-y-contacto/')}><span class="access-index" aria-hidden="true">03</span><span><strong>Ubicación y contacto</strong><small>Encontranos en Gracias, Lempira</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -56,10 +56,10 @@ const enfermedades = (await getCollection('enfermedades'))
           <p>Fundado en 1963, el establecimiento desarrolla actividades de atención y promoción de la salud. En este portal encontrás su cartera de servicios y recursos educativos sobre prevención de enfermedades.</p>
           <a class="text-link" href={siteUrl('el-centro/')}>Consultar la ficha del establecimiento <span aria-hidden="true">→</span></a>
         </div>
-        {fotosCentro.entrada
+        {fotosCentro.exteriores
           ? <figure class="institutional-photo institutional-photo-home">
-              <img src={fotosCentro.entrada} width="1200" height="900" loading="lazy" decoding="async" alt="Acceso al CIS en Gracias, Lempira, con rótulo «CIS Gracias» sobre la entrada." />
-              <figcaption>Acceso al establecimiento · Gracias, Lempira</figcaption>
+              <img src={fotosCentro.exteriores} width="1200" height="900" loading="lazy" decoding="async" alt="Vista exterior del CIS, con árboles y jardín junto al edificio." />
+              <figcaption>Exteriores del establecimiento · Gracias, Lempira</figcaption>
             </figure>
           : <aside class="center-aside" aria-label="Información para la comunidad">
           <h3>Información para la comunidad</h3>
@@ -87,7 +87,7 @@ const enfermedades = (await getCollection('enfermedades'))
         <div>
           <p class="section-label">Orientación para usuarios</p>
           <h2 id="atencion-title">Información de atención</h2>
-          <p>El CIS ofrece consulta médica general sin cobro y servicios de atención primaria. El horario de atención es de 7:00 a. m. a 3:00 p. m. Acudí al área de admisión para recibir orientación sobre la consulta.</p>
+          <p>{centro.consultaGeneralSinCobro?.valor === true && <>La consulta general no tiene cobro. </>}El horario de atención es de {centro.horario?.valor} Acudí al área de admisión para recibir orientación sobre la consulta.</p>
         </div>
         <div class="info-panel">
           <div class="info-row">
