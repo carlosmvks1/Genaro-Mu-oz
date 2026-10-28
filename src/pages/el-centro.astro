@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { centro, nombreCompleto, localidad } from '../data/centro';
 import { siteUrl } from '../lib/paths';
+import { fotosCentro } from '../data/fotografias';
 ---
 <BaseLayout title={`El centro | ${nombreCompleto}`} description={`Información institucional del ${nombreCompleto}, ubicado en ${localidad}, Honduras.`}>
   <main id="contenido">
@@ -46,5 +47,21 @@ import { siteUrl } from '../lib/paths';
         </aside>
       </div>
     </section>
+    {(fotosCentro.entrada || fotosCentro.exteriores) && <section class="section installation-section" aria-labelledby="instalaciones-title">
+      <div class="container">
+        <p class="section-label">Instalaciones</p>
+        <h2 id="instalaciones-title">Fotografías del establecimiento</h2>
+        <div class="institutional-gallery">
+          {fotosCentro.entrada && <figure class="institutional-photo">
+            <img src={fotosCentro.entrada} width="1200" height="900" loading="lazy" decoding="async" alt="Puerta de acceso al CIS en Gracias, Lempira; en la parte superior se lee «CIS Gracias»." />
+            <figcaption>Entrada principal del establecimiento.</figcaption>
+          </figure>}
+          {fotosCentro.exteriores && <figure class="institutional-photo">
+            <img src={fotosCentro.exteriores} width="1200" height="900" loading="lazy" decoding="async" alt="Exterior del CIS con ventanas enrejadas, árboles, jardín y una motocicleta estacionada." />
+            <figcaption>Vista exterior de las instalaciones.</figcaption>
+          </figure>}
+        </div>
+      </div>
+    </section>}
   </main>
 </BaseLayout>
