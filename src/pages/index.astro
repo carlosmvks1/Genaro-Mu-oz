@@ -4,6 +4,7 @@ import TarjetaEnfermedad from '../components/TarjetaEnfermedad.astro';
 import { getCollection } from 'astro:content';
 import { siteUrl } from '../lib/paths';
 import { centro, nombreCompleto, localidad } from '../data/centro';
+import { fotosCentro } from '../data/fotografias';
 const enfermedades = (await getCollection('enfermedades'))
   .filter(entry => entry.data.estado !== 'borrador')
   .sort((a, b) => a.data.orden - b.data.orden);
@@ -53,11 +54,16 @@ const enfermedades = (await getCollection('enfermedades'))
           <p>Su propósito es facilitar el acceso a información del establecimiento y materiales educativos sobre prevención, síntomas y atención oportuna.</p>
           <a class="text-link" href={siteUrl('el-centro/')}>Consultar la ficha del establecimiento <span aria-hidden="true">→</span></a>
         </div>
-        <aside class="center-aside" aria-label="Información para la comunidad">
+        {fotosCentro.entrada
+          ? <figure class="institutional-photo institutional-photo-home">
+              <img src={fotosCentro.entrada} width="1200" height="900" loading="lazy" decoding="async" alt="Acceso al CIS en Gracias, Lempira, con rótulo «CIS Gracias» sobre la entrada." />
+              <figcaption>Acceso al establecimiento · Gracias, Lempira</figcaption>
+            </figure>
+          : <aside class="center-aside" aria-label="Información para la comunidad">
           <h3>Información para la comunidad</h3>
           <p>Para conocer la disponibilidad actual de servicios, los horarios y los requisitos de atención, consultá directamente en el CIS.</p>
           <a class="text-link" href="#atencion">Ver orientación para usuarios <span aria-hidden="true">→</span></a>
-        </aside>
+        </aside>}
       </div>
     </section>
 
