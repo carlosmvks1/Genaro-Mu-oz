@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const paths = [
+  { path: 'nuestros-servicios/', slug: 'servicios' },
+  { path: 'antes-de-acudir/', slug: 'visita' },
+  { path: 'ubicacion-y-contacto/', slug: 'ubicacion' },
   { path: './', slug: 'inicio' },
   { path: 'el-centro/', slug: 'centro' },
   { path: 'enfermedades/chagas/', slug: 'chagas' },
@@ -130,4 +133,20 @@ test('fotografías institucionales cargan correctamente y tienen texto alternati
   await expect(front).toHaveCount(1);
   await front.scrollIntoViewIfNeeded();
   await expect.poll(() => front.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+});
+
+test('fase 4: datos confirmados y fotografías distintas', async ({page}) => {
+  await page.goto('./');
+  expect(await page.locator('.photo-hero-image').getAttribute('src')).not.toBe(await page.locator('.institutional-photo-home img').getAttribute('src'));
+  for (const route of ['nuestros-servicios/', 'antes-de-acudir/', 'ubicacion-y-contacto/']) {
+    await page.goto('./');
+    await page.locator(`.access-card[href$="/${route}"]`).click();
+    await expect(page).toHaveURL(new RegExp(route + '$'));
+    await expect(page.locator('main')).toContainText('7:00 a. m. a 3:00 p. m.');
+    await expect(page.locator('main')).not.toContainText(/lunes|martes|miércoles|jueves|viernes|sábado|domingo|identidad|Teresa Madrid/i);
+    await expect(page.locator('main iframe, main a[href^="tel:"], main a[href^="mailto:"]')).toHaveCount(0);
+  }
+  await page.goto('nuestros-servicios/');
+  await expect(page.locator('.directory-services li')).toHaveCount(10);
+  await expect(page.locator('main')).toContainText('La consulta general no tiene cobro.');
 });

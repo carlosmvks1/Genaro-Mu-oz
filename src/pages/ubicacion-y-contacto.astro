@@ -1,0 +1,14 @@
+---
+import VisitorLayout from '../layouts/VisitorLayout.astro';
+import { centro, localidad } from '../data/centro';
+import { fotosCentro } from '../data/fotografias';
+---
+<VisitorLayout title="Ubicación y contacto" description="Encontranos en Gracias, Lempira, Honduras. Consultá la información de atención del establecimiento.">
+  <h2>Dónde estamos</h2><p>{localidad}, {centro.pais}.</p>
+  {centro.direccionExacta && <p>{centro.direccionExacta.valor}</p>}
+  <figure class="institutional-photo"><img src={fotosCentro.entrada} width="4160" height="3120" loading="lazy" decoding="async" alt="Fachada del establecimiento con el rótulo CIS Gracias sobre la entrada." /><figcaption>Entrada del CIS Genaro Muñoz Hernández.</figcaption></figure>
+  <h2>Horario de atención</h2><p>{centro.horario?.valor}</p>
+  <h2>Orientación presencial</h2><p>Acudí al área de admisión del CIS para recibir información sobre la atención.</p>
+  {centro.telefono && <p><a class="text-link" href={`tel:${centro.telefono.valor.replace(/[^+\d]/g, '')}`}>{centro.telefono.valor}</a></p>}
+  {centro.correo && <p><a class="text-link" href={`mailto:${centro.correo.valor}`}>{centro.correo.valor}</a></p>}
+</VisitorLayout>

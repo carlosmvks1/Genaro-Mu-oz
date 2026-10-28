@@ -168,7 +168,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #b77a20;border-radius:3px
   .header-inner{gap:16px}
   .identity-text strong{font-size:1.03rem}
 }
-@media(max-width:960px){
+@media(max-width:1200px){
   .header-inner{min-height:75px}
   .identity-mark{height:44px;width:44px}
   .mobile-toggle{display:inline-flex}

@@ -21,7 +21,7 @@ const required = [
   [tuberculosis, 'Fuentes y revisión del contenido', 'Transparencia editorial de tuberculosis'],
   [centro, 'Datos generales', 'Ficha institucional'],
   [centro, 'Fotografías del establecimiento', 'Galería institucional'],
-  [inicio, 'Acceso al establecimiento', 'Fotografía en portada'],
+  [inicio, 'Exteriores del establecimiento', 'Fotografía en portada'],
   [centro, 'Consulta de medicina general', 'Cartera de servicios reportada'],
   [centro, '7:00 a. m. a 3:00 p. m.', 'Horario reportado'],
   [centro, 'La consulta general no tiene cobro.', 'Información de consulta general'],
@@ -41,3 +41,8 @@ if (errors.length) {
   process.exit(1);
 }
 console.log('Portal generado correctamente: rutas, contenido, navegación y metadatos.');
+
+for (const route of ['nuestros-servicios', 'antes-de-acudir', 'ubicacion-y-contacto']) {
+  const html = readFileSync(`dist/${route}/index.html`, 'utf8');
+  if (!html.includes('<main id="contenido"') || !inicio.includes(`/Genaro-Mu-oz/${route}/`)) throw new Error(`Página o enlace ausente: ${route}`);
+}

@@ -1,0 +1,11 @@
+---
+import VisitorLayout from '../layouts/VisitorLayout.astro';
+import { centro } from '../data/centro';
+---
+<VisitorLayout title="Nuestros servicios" description="Conocé los servicios de atención primaria del CIS Genaro Muñoz Hernández.">
+  <h2>Atención para nuestra comunidad</h2>
+  <ul class="directory-services">{centro.servicios?.valor.map(servicio => <li>{servicio}</li>)}</ul>
+  {centro.consultaGeneralSinCobro?.valor === true && <p><strong>La consulta general no tiene cobro.</strong></p>}
+  <h2>Horario de atención</h2><p>{centro.horario?.valor}</p>
+  <p>Acudí al área de admisión para recibir orientación sobre el servicio que necesitás.</p>
+</VisitorLayout>
