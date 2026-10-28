@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TarjetaEnfermedad from '../components/TarjetaEnfermedad.astro';
+import { getCollection } from 'astro:content';
+import { siteUrl } from '../lib/paths';
+import { centro, nombreCompleto, localidad } from '../data/centro';
+import { fotosCentro } from '../data/fotografias';
+const enfermedades = (await getCollection('enfermedades'))
+  .filter(entry => entry.data.estado !== 'borrador')
+  .sort((a, b) => a.data.orden - b.data.orden);
+---
+<BaseLayout title="CIS Genaro Muñoz Hernández | Gracias, Lempira" description="Información del CIS Genaro Muñoz Hernández en Gracias, Lempira, y recursos de educación y prevención en salud.">
+  <main id="contenido">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <p class="section-label">{centro.tipo} · {localidad}</p>
+          <h1 id="hero-title">{nombreCompleto}</h1>
+          <p class="hero-summary">Atención primaria, servicios de salud y orientación para las familias de Gracias, Lempira.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#atencion">Información de atención <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="#biblioteca">Biblioteca de salud <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <aside class="hero-info" aria-label="Información general del CIS">
+          <h2>Información general</h2>
+          <dl>
+            <div><dt>Establecimiento</dt><dd>{centro.tipo}</dd></div>
+            <div><dt>Localidad</dt><dd>{localidad}, {centro.pais}</dd></div>
+            <div><dt>Horario de atención</dt><dd>{centro.horario?.valor ?? 'Consultar en el establecimiento'}</dd></div>
+          </dl>
+          <a href={siteUrl('el-centro/')}>Información del centro <span aria-hidden="true">→</span></a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="access-section" aria-labelledby="acceso-title">
+      <div class="container">
+        <h2 id="acceso-title" class="access-title">Accesos principales</h2>
+        <div class="access-grid">
+          <a class="access-card" href="#centro"><span class="access-index" aria-hidden="true">01</span><span><strong>El establecimiento</strong><small>Información general del CIS</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+          <a class="access-card" href="#atencion"><span class="access-index" aria-hidden="true">02</span><span><strong>Orientación para usuarios</strong><small>Ubicación e información de atención</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+          <a class="access-card" href="#biblioteca"><span class="access-index" aria-hidden="true">03</span><span><strong>Educación en salud</strong><small>Enfermedades y prevención</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center-section" id="centro" aria-labelledby="centro-title">
+      <div class="container center-layout">
+        <div class="center-body">
+          <p class="section-label">El establecimiento</p>
+          <h2 id="centro-title">Sobre el {nombreCompleto}</h2>
+          <p>El {centro.tipo} {centro.nombre} brinda servicios de atención primaria a la población de {localidad}.</p>
+          <p>Fundado en 1963, el establecimiento desarrolla actividades de atención y promoción de la salud. En este portal encontrás su cartera de servicios y recursos educativos sobre prevención de enfermedades.</p>
+          <a class="text-link" href={siteUrl('el-centro/')}>Consultar la ficha del establecimiento <span aria-hidden="true">→</span></a>
+        </div>
+        {fotosCentro.entrada
+          ? <figure class="institutional-photo institutional-photo-home">
+              <img src={fotosCentro.entrada} width="1200" height="900" loading="lazy" decoding="async" alt="Acceso al CIS en Gracias, Lempira, con rótulo «CIS Gracias» sobre la entrada." />
+              <figcaption>Acceso al establecimiento · Gracias, Lempira</figcaption>
+            </figure>
+          : <aside class="center-aside" aria-label="Información para la comunidad">
+          <h3>Información para la comunidad</h3>
+          <p>El CIS dispone de servicios de atención primaria y orientación para la comunidad. Acudí al área de admisión para recibir información sobre la consulta.</p>
+          <a class="text-link" href="#atencion">Ver orientación para usuarios <span aria-hidden="true">→</span></a>
+        </aside>}
+      </div>
+    </section>
+
+    <section class="section education-section" id="biblioteca" aria-labelledby="biblioteca-title">
+      <div class="container">
+        <div class="section-title-row">
+          <div><p class="section-label">Recursos de salud</p><h2 id="biblioteca-title">Biblioteca de educación en salud</h2></div>
+          <p>Consultá información sobre enfermedades, prevención y señales que requieren valoración médica.</p>
+        </div>
+        <div class="topic-grid">
+          {enfermedades.map((entry) => <TarjetaEnfermedad slug={entry.id} titulo={entry.data.titulo} resumen={entry.data.resumen} categoria={entry.data.categoria} />)}
+        </div>
+        <p class="library-note">Los contenidos tienen finalidad educativa y deben interpretarse junto con la orientación del personal de salud.</p>
+      </div>
+    </section>
+
+    <section class="section care-section" id="atencion" aria-labelledby="atencion-title">
+      <div class="container care-layout">
+        <div>
+          <p class="section-label">Orientación para usuarios</p>
+          <h2 id="atencion-title">Información de atención</h2>
+          <p>El CIS ofrece consulta médica general sin cobro y servicios de atención primaria. El horario de atención es de 7:00 a. m. a 3:00 p. m. Acudí al área de admisión para recibir orientación sobre la consulta.</p>
+        </div>
+        <div class="info-panel">
+          <div class="info-row">
+            <div><span class="info-eyebrow">{centro.direccionExacta ? 'Dirección del establecimiento' : 'Ubicación general'}</span><strong>{centro.direccionExacta?.valor ?? localidad}</strong><p>{centro.pais}</p></div>
+          </div>
+          <div class="info-row">
+            <div><span class="info-eyebrow">Servicios y horarios</span>
+              {centro.servicios
+                ? <><strong>Servicios de atención</strong><ul>{centro.servicios.valor.map((servicio) => <li>{servicio}</li>)}</ul></>
+                : <><strong>Información de servicios</strong><p>Consultar directamente en el CIS.</p></>}
+              {centro.horario && <p><strong>Horario:</strong> {centro.horario.valor}</p>}
+            </div>
+          </div>
+          {(centro.telefono || centro.correo) && <div class="info-row">
+            <div><span class="info-eyebrow">Contacto institucional</span>
+              {centro.telefono && <p><a class="inline-link" href={`tel:${centro.telefono.valor.replace(/[^+\d]/g, '')}`}>{centro.telefono.valor}</a></p>}
+              {centro.correo && <p><a class="inline-link" href={`mailto:${centro.correo.valor}`}>{centro.correo.valor}</a></p>}
+            </div>
+          </div>}
+          <div class="info-row">
+            <div><span class="info-eyebrow">Recursos educativos</span><strong>Biblioteca de salud</strong><p><a class="inline-link" href="#biblioteca">Ver temas disponibles <span aria-hidden="true">→</span></a></p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

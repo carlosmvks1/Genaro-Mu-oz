@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { siteUrl } from '../../lib/paths';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('enfermedades');
+  return entries.filter(entry => entry.data.estado !== 'borrador').map(entry => ({
+    params: { slug: entry.id },
+    props: { entry }
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const fecha = new Intl.DateTimeFormat('es-HN', { year:'numeric',month:'long',day:'numeric',timeZone:'UTC' }).format(d.fechaActualizacion);
+---
+<BaseLayout title={`${d.titulo} | CIS Genaro Muñoz Hernández`} description={d.resumen}>
+  <main id="contenido">
+    <section class="article-hero"><div class="container">
+      <nav class="breadcrumb" aria-label="Ruta de navegación"><a href={siteUrl('')}>Inicio</a> / <a href={siteUrl('#biblioteca')}>Educación en salud</a> / {d.titulo}</nav>
+      <span class="health-badge">{d.categoria}</span>
+      <h1>{d.titulo}</h1>
+      <p>{d.resumen}</p>
+    </div></section>
+    <div class="container article-grid">
+      <article class="health-article">
+        <Content />
+        <section class="health-meta" aria-labelledby="fuentes-titulo">
+          <h2 id="fuentes-titulo">Fuentes y revisión del contenido</h2>
+          <p>Contenido actualizado: {fecha}.</p>
+          {d.fechaRevisionClinica && <p>Última revisión clínica: {new Intl.DateTimeFormat('es-HN',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'}).format(d.fechaRevisionClinica)}.</p>}
+          <ol>{d.fuentes.map(f => <li><a href={f.url} target="_blank" rel="noopener noreferrer">{f.titulo}</a></li>)}</ol>
+        </section>
+        <a class="health-back" href={siteUrl('#biblioteca')}>← Volver a educación en salud</a>
+      </article>
+      <aside class="health-sidebar" aria-label="Orientación de salud">
+        <h2>Información importante</h2>
+        <ul><li>La evaluación médica determina el diagnóstico y tratamiento.</li><li>No te automediqués.</li><li>Ante una emergencia, buscá atención inmediata.</li></ul>
+        <p>Este recurso educativo no sustituye la consulta médica.</p>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>

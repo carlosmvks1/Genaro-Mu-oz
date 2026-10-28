@@ -1,0 +1,57 @@
+---
+import { siteUrl } from '../lib/paths';
+import { centro, localidad } from '../data/centro';
+const home = siteUrl('');
+---
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <span>Información para la comunidad</span>
+    <span>{localidad} · {centro.pais}</span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="identity" href={home}>
+      <span class="identity-mark" aria-hidden="true">CIS</span>
+      <span class="identity-text"><small>{centro.tipo}</small><strong>{centro.nombre}</strong></span>
+    </a>
+    <button class="mobile-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-menu>Menú ☰</button>
+    <nav class="main-nav" id="primary-nav" data-nav aria-label="Navegación principal">
+      <a href={home}>Inicio</a>
+      <a href={siteUrl('el-centro/')}>El centro</a>
+      <a href={siteUrl('#atencion')}>Información de atención</a>
+      <a href={siteUrl('#biblioteca')}>Educación en salud</a>
+      <a href={siteUrl('#contacto')}>Contacto</a>
+    </nav>
+  </div>
+</header>
+<script>
+  const menu = document.querySelector<HTMLButtonElement>('[data-menu]');
+  const nav = document.querySelector<HTMLElement>('[data-nav]');
+  if (menu && nav) {
+    const close = () => {
+      nav.classList.remove('open');
+      menu.setAttribute('aria-expanded', 'false');
+      menu.textContent = 'Menú ☰';
+    };
+    menu.addEventListener('click', () => {
+      const opened = nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(opened));
+      menu.textContent = opened ? 'Cerrar ✕' : 'Menú ☰';
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav.classList.contains('open')) {
+        close(); menu.focus();
+      }
+    });
+    document.addEventListener('click', event => {
+      if (nav.classList.contains('open') &&
+          !nav.contains(event.target as Node) &&
+          !menu.contains(event.target as Node)) close();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 960 && nav.classList.contains('open')) close();
+    });
+  }
+</script>

@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { centro, nombreCompleto, localidad } from '../data/centro';
+import { siteUrl } from '../lib/paths';
+import { fotosCentro } from '../data/fotografias';
+---
+<BaseLayout title={`El centro | ${nombreCompleto}`} description={`Información institucional del ${nombreCompleto}, ubicado en ${localidad}, Honduras.`}>
+  <main id="contenido">
+    <section class="article-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href={siteUrl('')}>Inicio</a> / El centro
+        </nav>
+        <p class="section-label">Información institucional</p>
+        <h1>Sobre el {nombreCompleto}</h1>
+        <p>Conocé nuestra historia, los servicios de salud, el horario de atención y las instalaciones del establecimiento.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container directory-grid">
+        <div>
+          <h2>Datos generales</h2>
+          <dl class="directory-list">
+            <div><dt>Nombre</dt><dd>{centro.tipo} {centro.nombre}</dd></div>
+            <div><dt>Municipio</dt><dd>{centro.municipio}</dd></div>
+            <div><dt>Departamento</dt><dd>{centro.departamento}</dd></div>
+            <div><dt>País</dt><dd>{centro.pais}</dd></div>
+            {centro.direccionExacta && <div><dt>Dirección</dt><dd>{centro.direccionExacta.valor}</dd></div>}
+            {centro.horario && <div><dt>Horario de atención</dt><dd>{centro.horario.valor}</dd></div>}
+            {centro.telefono && <div><dt>Teléfono</dt><dd><a href={`tel:${centro.telefono.valor.replace(/[^+\d]/g, '')}`}>{centro.telefono.valor}</a></dd></div>}
+            {centro.correo && <div><dt>Correo institucional</dt><dd><a href={`mailto:${centro.correo.valor}`}>{centro.correo.valor}</a></dd></div>}
+          </dl>
+          <section class="institutional-history" aria-labelledby="historia-title">
+            <h2 id="historia-title">Nuestra historia</h2>
+            <p>El Centro de Salud Genaro Muñoz Hernández fue fundado en 1963 en la ciudad de Gracias, Lempira. Desde entonces, el establecimiento forma parte de la atención sanitaria de la comunidad.</p>
+          </section>
+          <h2>Servicios de atención</h2>
+          {centro.servicios
+            ? <ul class="directory-services">{centro.servicios.valor.map(servicio=><li>{servicio}</li>)}</ul>
+            : <p>El CIS ofrece servicios de atención primaria a la población de Gracias.</p>}
+          {centro.consultaGeneralSinCobro?.valor === true && <p>La consulta general no tiene cobro.</p>}
+          {centro.requisitosAtencion
+            ? <p>Documentos para solicitar atención: {centro.requisitosAtencion.valor.join(', ')}.</p>
+            : <p>Acudí al área de admisión para recibir orientación sobre la atención.</p>}
+          {centro.ultimaRevisionInstitucional && <p class="directory-updated">Última validación institucional: {centro.ultimaRevisionInstitucional.verificadoEl}.</p>}
+        </div>
+        <aside class="directory-aside">
+          <h2>Educación en salud</h2>
+          <p>También podés consultar las fichas de educación en salud disponibles en este portal.</p>
+          <ul>
+            <li><a href={siteUrl('enfermedades/chagas/')}>Enfermedad de Chagas</a></li>
+            <li><a href={siteUrl('enfermedades/tuberculosis/')}>Tuberculosis</a></li>
+          </ul>
+          <p>Estos recursos educativos no sustituyen la consulta médica.</p>
+        </aside>
+      </div>
+    </section>
+    {(fotosCentro.entrada || fotosCentro.exteriores) && <section class="section installation-section" aria-labelledby="instalaciones-title">
+      <div class="container">
+        <p class="section-label">Instalaciones</p>
+        <h2 id="instalaciones-title">Fotografías del establecimiento</h2>
+        <div class="institutional-gallery">
+          {fotosCentro.entrada && <figure class="institutional-photo">
+            <img src={fotosCentro.entrada} width="1200" height="900" loading="lazy" decoding="async" alt="Puerta de acceso al CIS en Gracias, Lempira; en la parte superior se lee «CIS Gracias»." />
+            <figcaption>Entrada principal del establecimiento.</figcaption>
+          </figure>}
+          {fotosCentro.exteriores && <figure class="institutional-photo">
+            <img src={fotosCentro.exteriores} width="1200" height="900" loading="lazy" decoding="async" alt="Exterior del CIS con ventanas enrejadas, árboles, jardín y una motocicleta estacionada." />
+            <figcaption>Vista exterior de las instalaciones.</figcaption>
+          </figure>}
+        </div>
+      </div>
+    </section>}
+  </main>
+</BaseLayout>

@@ -1,33 +1,45 @@
-# Portal educativo del CIS Genaro Muñoz Hernández — prototipo
-**Lugar:** Gracias, Lempira, Honduras · **Estado:** versión demostrativa, no validada ni presentada como página oficial de SESAL.
+# CIS Genaro Muñoz Hernández
+
+Portal de información institucional y educación en salud del **Centro Integral de Salud Genaro Muñoz Hernández**, Gracias, Lempira, Honduras.
+
+**Sitio:** https://carlosmvks1.github.io/Genaro-Mu-oz/
 
 ## Contenido
-- `index.html`: portada del portal y acceso a temas.
-- `chagas.html`: guía educativa sobre enfermedad de Chagas, prevención, signos, consultas, preguntas frecuentes, ejercicio didáctico y fuentes.
-- `styles.css`: diseño para móviles, pantallas grandes e impresión.
-- `app.js`: menú responsive, ejercicio de repaso y botón imprimir.
-- `assets/triatomino.svg`: ilustración esquemática no apta para identificación entomológica.
+- Inicio, orientación de atención y servicios del establecimiento.
+- Información institucional, reseña histórica e imágenes propias del CIS.
+- Biblioteca de educación en salud con las fichas de Chagas y tuberculosis.
+- Navegación adaptable a móvil, tableta y computadora.
 
-Se enlaza el recurso previo de tuberculosis: https://carlosmvks1.github.io/tb-gracias/ .
+## Tecnología
+- Astro 7 y TypeScript: sitio estático, rápido y modular.
+- Colecciones Markdown validadas con Zod.
+- CSS institucional accesible, sin dependencia de JavaScript para leer el contenido.
+- GitHub Actions: pruebas de tipos, compilación, rutas y navegación real con Chromium/axe.
+- GitHub Pages para publicación.
 
-## Vista previa
-Abrir `index.html` en un navegador. Las rutas del sitio son relativas y son compatibles con GitHub Pages (si se autoriza su publicación).
+## Desarrollo local
 
-## Qué pedir a la dirección del CIS
-1. Autorización para publicación institucional, denominación oficial, emblemas y fotografías.
-2. Servicios efectivos, horarios, dirección y canales de contacto verificables.
-3. Profesional responsable de validación médica y fecha de próxima revisión.
-4. Responsable del repositorio, capacitación, respaldo y flujo de actualización.
-5. Ruta local de atención y derivación en Chagas/TB, sin presumir disponibilidad de pruebas ni medicamentos.
+Requiere Node.js 24.
 
-## Fuentes sanitarias
-- OMS: https://www.who.int/es/news-room/fact-sheets/detail/chagas-disease-%28american-trypanosomiasis%29
-- OPS: https://www.paho.org/es/temas/enfermedad-chagas
-- CDC: https://www.cdc.gov/chagas/es/prevention/como-prevenir-la-enfermedad-de-chagas.html
-- OPS, guía 2026: https://www.paho.org/es/documentos/guia-para-diagnostico-tratamiento-enfermedad-chagas-segunda-edicion
+```bash
+npm ci
+npm run dev
+npm run check
+npm run build
+node scripts/check-output.mjs
+```
 
-## Seguridad y alcance
-El portal no solicita ni recopila datos de pacientes, no diagnostica, no agenda citas ni sustituye una consulta. `noindex,nofollow` se mantiene como precaución mientras sea prototipo; no constituye un control de acceso. La visibilidad privada del repositorio debe conservarse hasta completar la revisión institucional. Para GitHub Pages hay que comprobar permisos y disponibilidad según el plan y la visibilidad del repositorio.
+## Publicación
+Los cambios se revisan en ramas de trabajo y se integran mediante Pull Request a `main`. El flujo `.github/workflows/pages-astro.yml` compila Astro, genera las páginas estáticas y ofrece compatibilidad tanto con despliegue GitHub Actions como con el origen clásico por rama.
 
-## Demostración sugerida
-Mostrar portada, entrar en Chagas, recorrer transmisión y prevención, probar la actividad interactiva, enseñar el enlace a TB. Después pedir validación clínica y datos del CIS. No hacer pasar el prototipo por un portal oficial.
+La rama `backup/main-antes-astro-2026-10-28` conserva una referencia de la web HTML anterior, anterior a la migración.
+
+## Revisión de contenidos
+Las fichas médicas contienen fuentes y estados editoriales registrados en `src/content/enfermedades/`. La información del CIS se centraliza en `src/data/centro.ts` para poder corregirse en un solo lugar.
+
+La bibliografía, la investigación documental y la propuesta para la dirección se mantienen como documentación de proyecto, no como advertencias visibles para el visitante:
+- [Investigación institucional](INVESTIGACION-CIS-GRACIAS-2026.md)
+- [Propuesta para la dirección](PROPUESTA-PARA-DIRECCION.md)
+- [Arquitectura](ARQUITECTURA.md)
+
+Para la publicación bajo identidad y dominio institucional definitivos, corresponde aplicar las correcciones y autorizaciones de la dirección y establecer responsables permanentes de contenido.
