@@ -4,7 +4,7 @@ import { centro } from '../data/centro';
 import { siteUrl } from '../lib/paths';
 ---
 <VisitorLayout title="Antes de acudir" description="Información práctica para tu visita al CIS Genaro Muñoz Hernández.">
-  <h2>Consultá el horario</h2><p>El horario de atención es de {centro.horario?.valor}.</p>
+  <h2>Consultá el horario</h2><p>El horario de atención es de {centro.horario?.valor}</p>
   <h2>Consulta general</h2>
   {centro.consultaGeneralSinCobro?.valor === true && <p>La consulta general no tiene cobro.</p>}
   <h2>Orientación al llegar</h2><p>Acudí al área de admisión para recibir orientación sobre la atención y los trámites del servicio que necesitás.</p>

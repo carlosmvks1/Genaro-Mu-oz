@@ -87,7 +87,7 @@ const enfermedades = (await getCollection('enfermedades'))
         <div>
           <p class="section-label">Orientación para usuarios</p>
           <h2 id="atencion-title">Información de atención</h2>
-          <p>{centro.consultaGeneralSinCobro?.valor === true && <>La consulta general no tiene cobro. </>}El horario de atención es de {centro.horario?.valor}. Acudí al área de admisión para recibir orientación sobre la consulta.</p>
+          <p>{centro.consultaGeneralSinCobro?.valor === true && <>La consulta general no tiene cobro. </>}El horario de atención es de {centro.horario?.valor} Acudí al área de admisión para recibir orientación sobre la consulta.</p>
         </div>
         <div class="info-panel">
           <div class="info-row">
