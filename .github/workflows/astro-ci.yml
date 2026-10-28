@@ -35,3 +35,5 @@ jobs:
         run: |
           test -f dist/index.html
           test -f dist/enfermedades/chagas/index.html
+      - name: Verificar rutas públicas y contenido generado
+        run: node scripts/check-output.mjs
