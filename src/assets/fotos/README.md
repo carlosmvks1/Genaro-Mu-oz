@@ -1,17 +1,17 @@
 # Fotografías institucionales del CIS
 
-Agregar a esta carpeta dos archivos AVIF, con estos nombres exactos:
+Este directorio contiene dos fotografías enviadas para el portal el 28 de octubre de 2026:
 
-- `cis-entrada.avif` — fotografía de la entrada del centro y el rótulo «CIS Gracias».
-- `cis-exteriores.avif` — fotografía del edificio, las ventanas y el jardín exterior.
+- `cis-entrada.avif`: entrada al establecimiento con rótulo visible «CIS Gracias»; usado en la portada y en «El centro».
+- `cis-exteriores.avif`: vista exterior del edificio, vegetación y ventanas; usado en «El centro».
 
-Los archivos se entregaron optimizados en `fotografias_cis_optimizadas.zip` dentro de la conversación de octubre de 2026. No incorporar aquí fotos de pacientes sin consentimiento o material ajeno sin permiso.
+## Optimización
+Ambas imágenes están en AVIF (1200 × 900 píxeles) y no contienen metadatos EXIF personales. Los originales en PNG se mantienen fuera del repositorio. El código de `src/data/fotografias.ts` importa los archivos y los muestra solo cuando existen.
 
-El importador `src/data/fotografias.ts` detectará los archivos y los mostrará automáticamente en la portada y en `/el-centro/`.
+## Criterios para la publicación
+- Confirmar con la dirección que las fotos están autorizadas para difusión.
+- Verificar si «CIS Gracias» es el nombre público actual y si «Genaro Muñoz Hernández» es la denominación administrativa vigente; no asumir equivalencias.
+- No publicar datos personales de pacientes ni fotografías con personas identificables sin consentimiento.
+- Usar pies de foto fácticos y textos alternativos; las imágenes no sustituyen información de servicios u horarios.
 
-Antes de publicar, confirmar con la dirección:
-1. Autorización para utilizar las fotografías.
-2. Si «CIS Gracias» es nombre público y/o si «Genaro Muñoz Hernández» sigue siendo la denominación formal.
-3. Que las fotografías correspondan al edificio que el establecimiento desea representar públicamente.
-
-Mantener las imágenes en formato AVIF, sin datos EXIF personales y preferentemente con un máximo aproximado de 1200 px.
+Las fotografías aparecen sin carruseles, filtros de color ni imágenes promocionales ajenas al establecimiento.
