@@ -8,6 +8,24 @@ const paths = [
   { path: 'enfermedades/tuberculosis/', slug: 'tuberculosis' },
 ];
 
+test('portada: la fachada real tiene prioridad y el título queda fuera de la imagen', async ({ page }) => {
+  await page.goto('./');
+  const title = page.getByRole('heading', { level: 1 });
+  const photo = page.locator('.photo-hero-image');
+  await expect(title).toContainText('CIS Genaro Muñoz Hernández');
+  await expect(photo).toHaveAttribute('src', /cis-entrada.*\.avif$/);
+  await expect(photo).toHaveAttribute('loading', 'eager');
+  await expect(photo).toHaveAttribute('fetchpriority', 'high');
+  await expect(photo).toHaveAttribute('alt', /Fachada y acceso al CIS/);
+  await expect.poll(() => photo.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+  const titleBox = await title.boundingBox();
+  const photoBox = await photo.boundingBox();
+  expect(titleBox.y + titleBox.height).toBeLessThan(photoBox.y);
+  await expect(page.locator('.photo-hero-details')).toContainText('7:00 a. m. a 3:00 p. m.');
+  await page.locator('.photo-hero-caption a[href="#atencion"]').click();
+  await expect(page).toHaveURL(/#atencion$/);
+});
+
 for (const { path, slug } of paths) {
   test(`${slug}: navegación, legibilidad y captura`, async ({ page }, testInfo) => {
     const errors = [];

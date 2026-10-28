@@ -55,6 +55,51 @@ a:focus-visible,button:focus-visible{outline:3px solid #b77a20;border-radius:3px
 .hero-info dd{margin:2px 0 0;font-size:.92rem;font-weight:650;line-height:1.5;color:var(--ink)}
 .hero-info a{display:inline-flex;gap:16px;align-items:center;margin-top:9px;font-weight:720;font-size:.86rem;color:var(--teal);text-decoration:underline;text-underline-offset:4px}
 
+/* Portada fotográfica: fachada real, título independiente y lectura sobre sombra neutra. */
+.photo-hero-heading{padding-block:39px 35px}
+.photo-hero-heading .section-label{margin-bottom:10px}
+.photo-hero-heading h1{margin:0;color:var(--navy-deep);font:400 clamp(2rem,3.3vw,3rem)/1.2 Georgia,"Times New Roman",serif;letter-spacing:-.025em;text-wrap:balance}
+.photo-hero-scene{position:relative;isolation:isolate;min-height:560px;display:flex;align-items:end;background:var(--navy-deep)}
+.photo-hero-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.photo-hero-scene::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.5) 52%,rgba(0,0,0,.88) 100%)}
+.photo-hero-caption{padding-block:240px 44px;color:#fff}
+.photo-hero-caption .photo-hero-message{font:400 clamp(2rem,3.2vw,3.1rem)/1.2 Georgia,"Times New Roman",serif;letter-spacing:-.02em;max-width:850px;margin:0 0 13px;text-wrap:balance}
+.photo-hero-caption>p:not(.photo-hero-message){margin:0;max-width:650px;font-size:1.05rem}
+.photo-hero-caption .hero-actions{margin-top:23px}
+.photo-hero-caption .button-primary{background:#fff;color:var(--navy-deep);border-color:#fff}
+.photo-hero-caption .button-primary:hover{background:#edf3f4}
+.photo-hero-caption .button-secondary{background:#172e36;color:#fff;border-color:#d4dfe3}
+.photo-hero-caption .button-secondary:hover{background:#254650}
+.photo-hero-details{background:var(--paper);border-bottom:1px solid var(--line)}
+.photo-hero-details-inner{display:flex;align-items:center;gap:55px;padding-block:21px}
+.photo-hero-details p{margin:0;line-height:1.5}
+.photo-hero-details p span{display:block;color:var(--muted);font-size:.76rem}
+.photo-hero-details strong{font-size:.92rem;color:var(--navy-deep)}
+.photo-hero-details .text-link{margin-left:auto}
+@media(min-width:1800px){.photo-hero-scene{min-height:640px}}
+@media(max-width:760px){
+  .photo-hero-heading{padding-block:28px}
+  .photo-hero-scene{min-height:590px}
+  .photo-hero-image{object-position:48% 30%}
+  .photo-hero-caption{padding-block:300px 30px}
+  .photo-hero-details-inner{flex-wrap:wrap;gap:16px 30px}
+  .photo-hero-details .text-link{margin-left:0}
+}
+@media(max-width:550px){
+  .photo-hero-heading h1{font-size:2rem}
+  .photo-hero-heading .section-label{font-size:.66rem}
+  .photo-hero-caption .photo-hero-message{font-size:2.05rem}
+  .photo-hero-caption>p:not(.photo-hero-message){font-size:.94rem}
+  .photo-hero-caption .hero-actions{margin-top:20px}
+  .photo-hero-details-inner{display:grid;gap:13px;padding-block:20px}
+}
+@media print{
+  .photo-hero-image,.photo-hero-scene::before{display:none}
+  .photo-hero-scene{min-height:0;background:#fff}
+  .photo-hero-caption{padding-block:15px;color:#000}
+  .photo-hero-details-inner{display:block}
+}
+
 /* Navegación en tres tareas */
 .access-section{padding:34px 0 42px;border-bottom:1px solid var(--line);background:#fff}
 .access-title{font-size:.91rem;color:var(--navy-deep);margin:0 0 15px;font-weight:750}

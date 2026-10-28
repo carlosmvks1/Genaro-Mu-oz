@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 /**
  * Control previo a la publicación:
@@ -9,7 +10,7 @@ import { join } from 'node:path';
  *   del proyecto sin fingir que la dirección o un médico ya la aprobaron.
  */
 const folder = new URL('../src/content/enfermedades/', import.meta.url);
-const root = decodeURIComponent(folder.pathname);
+const root = fileURLToPath(folder);
 const errors = [];
 const warnings = [];
 for (const file of readdirSync(root).filter(f => f.endsWith('.md'))) {
