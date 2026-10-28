@@ -1,0 +1,39 @@
+name: Astro · Validación y compilación
+on:
+  push:
+    branches:
+      - architecture/astro-platform
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - '.github/workflows/astro-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Revisión tipada y construcción
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar dependencias
+        run: npm ci --no-audit --no-fund
+      - name: Revisar TypeScript y contenido
+        run: npm run check
+      - name: Compilar portal
+        run: npm run build
+      - name: Confirmar páginas generadas
+        run: |
+          test -f dist/index.html
+          test -f dist/enfermedades/chagas/index.html
+      - name: Verificar rutas públicas y contenido generado
+        run: node scripts/check-output.mjs

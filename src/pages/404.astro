@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteUrl } from '../lib/paths';
+---
+<BaseLayout title="Página no encontrada | CIS Genaro Muñoz Hernández" description="Esta dirección no corresponde a una página disponible del portal.">
+  <main id="contenido"><section class="section"><div class="container" style="min-height:48vh"><p class="overline">Error 404</p><h1>Página no encontrada</h1><p>El recurso que buscás no está disponible en esta dirección.</p><a class="button button-light" href={siteUrl('')}>Volver al inicio</a></div></section></main>
+</BaseLayout>

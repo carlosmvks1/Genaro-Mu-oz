@@ -1,33 +1,45 @@
-# Portal educativo del CIS Genaro Muñoz Hernández — prototipo
-**Lugar:** Gracias, Lempira, Honduras · **Estado:** versión demostrativa, no validada ni presentada como página oficial de SESAL.
+# CIS Genaro Muñoz Hernández
 
-## Contenido
-- `index.html`: portada del portal y acceso a temas.
-- `chagas.html`: guía educativa sobre enfermedad de Chagas, prevención, signos, consultas, preguntas frecuentes, ejercicio didáctico y fuentes.
-- `styles.css`: diseño para móviles, pantallas grandes e impresión.
-- `app.js`: menú responsive, ejercicio de repaso y botón imprimir.
-- `assets/triatomino.svg`: ilustración esquemática no apta para identificación entomológica.
+Portal institucional de información y educación sanitaria para el CIS Genaro Muñoz Hernández, Gracias, Lempira, Honduras.
 
-Se enlaza el recurso previo de tuberculosis: https://carlosmvks1.github.io/tb-gracias/ .
+## Estado del proyecto
+- **Sitio actual:** publicado en la rama `main`.
+- **Rediseño de portada:** PR #1, rama `redesign/portada-institucional`.
+- **Nueva arquitectura Astro:** PR #2, rama `architecture/astro-platform` (basada en la rama de rediseño).
+- **Edición clínica de Chagas:** `revision-clinica` hasta su aprobación por el profesional responsable.
 
-## Vista previa
-Abrir `index.html` en un navegador. Las rutas del sitio son relativas y son compatibles con GitHub Pages (si se autoriza su publicación).
+La web pública no se modifica por los PR en borrador.
 
-## Qué pedir a la dirección del CIS
-1. Autorización para publicación institucional, denominación oficial, emblemas y fotografías.
-2. Servicios efectivos, horarios, dirección y canales de contacto verificables.
-3. Profesional responsable de validación médica y fecha de próxima revisión.
-4. Responsable del repositorio, capacitación, respaldo y flujo de actualización.
-5. Ruta local de atención y derivación en Chagas/TB, sin presumir disponibilidad de pruebas ni medicamentos.
+## Tecnologías
+Astro 7, TypeScript, Markdown, colección de contenido validada con Zod, CSS modular y GitHub Actions. El contenido se genera como HTML estático.
 
-## Fuentes sanitarias
-- OMS: https://www.who.int/es/news-room/fact-sheets/detail/chagas-disease-%28american-trypanosomiasis%29
-- OPS: https://www.paho.org/es/temas/enfermedad-chagas
-- CDC: https://www.cdc.gov/chagas/es/prevention/como-prevenir-la-enfermedad-de-chagas.html
-- OPS, guía 2026: https://www.paho.org/es/documentos/guia-para-diagnostico-tratamiento-enfermedad-chagas-segunda-edicion
+## Comenzar
+Requiere Node.js 24 y npm.
 
-## Seguridad y alcance
-El portal no solicita ni recopila datos de pacientes, no diagnostica, no agenda citas ni sustituye una consulta. `noindex,nofollow` se mantiene como precaución mientras sea prototipo; no constituye un control de acceso. La visibilidad privada del repositorio debe conservarse hasta completar la revisión institucional. Para GitHub Pages hay que comprobar permisos y disponibilidad según el plan y la visibilidad del repositorio.
+```bash
+npm ci
+npm run dev
+npm run check
+npm run build
+```
 
-## Demostración sugerida
-Mostrar portada, entrar en Chagas, recorrer transmisión y prevención, probar la actividad interactiva, enseñar el enlace a TB. Después pedir validación clínica y datos del CIS. No hacer pasar el prototipo por un portal oficial.
+## Estructura
+- `src/layouts/`: plantilla general.
+- `src/components/`: encabezado, pie y tarjetas reutilizables.
+- `src/pages/`: portada y páginas generadas de enfermedades.
+- `src/content/enfermedades/`: fichas médicas en Markdown.
+- `src/content.config.ts`: esquema tipado, controles y datos obligatorios.
+- `src/styles/`: diseño institucional.
+
+Para más detalles, ver [ARQUITECTURA.md](ARQUITECTURA.md).
+
+## Despliegue
+El sitio se compila con Astro y se publica en GitHub Pages desde un workflow que solo se ejecuta sobre `main`. Antes de activar este despliegue, el repositorio debe utilizar **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+El flujo de publicación incluye un control editorial que bloquea las fichas médicas no aprobadas. Una vez aprobado el contenido, su archivo debe registrar `estado: aprobado`, `fechaRevisionClinica` y `responsableRevision`. Ese registro solo se realiza después de la revisión efectiva de un profesional autorizado.
+
+## Limitaciones actuales
+La ubicación exacta, horarios, servicios, contactos, fotos y elementos de identidad institucional dependen de la información validada por el CIS. El micrositio de tuberculosis permanece enlazado externamente mientras se prepara su integración.
+
+## Fuentes y derechos
+Las fichas citan fuentes oficiales; el código es del proyecto. La inclusión de logotipos y fotografías institucionales requiere permiso de los titulares correspondientes.

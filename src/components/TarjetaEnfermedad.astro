@@ -1,0 +1,11 @@
+---
+import { siteUrl } from '../lib/paths';
+interface Props { slug: string; titulo: string; resumen: string; categoria: string; }
+const {slug, titulo, resumen, categoria} = Astro.props;
+---
+<a class="topic-card chagas" href={siteUrl(`enfermedades/${slug}/`)}>
+  <div class="topic-top"><span class="topic-label">{categoria}</span><span class="topic-visual chagas-visual" aria-hidden="true">✳</span></div>
+  <h3>{titulo}</h3>
+  <p>{resumen}</p>
+  <span class="topic-action">Consultar información <span aria-hidden="true">↗</span></span>
+</a>
