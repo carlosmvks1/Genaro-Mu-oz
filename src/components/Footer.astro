@@ -4,22 +4,26 @@ import { siteUrl } from '../lib/paths';
 <footer class="site-footer" id="contacto">
   <div class="container footer-main">
     <div class="footer-about">
-      <div class="footer-brand"><span class="footer-plus" aria-hidden="true">+</span><strong>CIS Genaro Muñoz Hernández</strong></div>
-      <p>Información y educación para la salud de la comunidad de Gracias, Lempira, Honduras.</p>
+      <p class="footer-kicker">Centro Integral de Salud</p>
+      <strong class="footer-name">Genaro Muñoz Hernández</strong>
+      <p>Gracias, Lempira · Honduras</p>
+      <p class="footer-description">Información del establecimiento y educación para la salud de la comunidad.</p>
     </div>
-    <div class="footer-column"><h2>Explorar</h2>
+    <div class="footer-column">
+      <h2>Información</h2>
+      <a href={siteUrl('')}>Inicio</a>
       <a href={siteUrl('#centro')}>El centro</a>
-      <a href={siteUrl('#atencion')}>Información de atención</a>
-      <a href={siteUrl('#biblioteca')}>Educación en salud</a>
+      <a href={siteUrl('#atencion')}>Orientación para usuarios</a>
     </div>
-    <div class="footer-column"><h2>Recursos</h2>
+    <div class="footer-column">
+      <h2>Educación en salud</h2>
+      <a href={siteUrl('#biblioteca')}>Biblioteca de salud</a>
       <a href={siteUrl('enfermedades/chagas/')}>Enfermedad de Chagas</a>
-      <a href="https://carlosmvks1.github.io/tb-gracias/" target="_blank" rel="noopener noreferrer">Tuberculosis <span class="sr-only">(abre una pestaña nueva)</span></a>
-      <a href="https://www.paho.org/es" target="_blank" rel="noopener noreferrer">Organización Panamericana de la Salud <span class="sr-only">(abre una pestaña nueva)</span></a>
+      <a href="https://carlosmvks1.github.io/tb-gracias/" target="_blank" rel="noopener noreferrer">Tuberculosis <span class="sr-only">(se abre en una nueva pestaña)</span></a>
     </div>
   </div>
   <div class="container footer-bottom">
-    <span>© {new Date().getFullYear()} CIS Genaro Muñoz Hernández · Gracias, Lempira</span>
-    <span>La información educativa no sustituye una evaluación médica.</span>
+    <span>© {new Date().getFullYear()} CIS Genaro Muñoz Hernández</span>
+    <span>El contenido educativo no sustituye la consulta médica.</span>
   </div>
 </footer>
