@@ -1,23 +1,24 @@
 ---
 import { siteUrl } from '../lib/paths';
+import { centro, localidad } from '../data/centro';
 const home = siteUrl('');
 ---
 <div class="utility-bar">
   <div class="container utility-inner">
     <span>Información para la comunidad</span>
-    <span>Gracias, Lempira · Honduras</span>
+    <span>{localidad} · {centro.pais}</span>
   </div>
 </div>
 <header class="site-header">
   <div class="container header-inner">
     <a class="identity" href={home}>
       <span class="identity-mark" aria-hidden="true">CIS</span>
-      <span class="identity-text"><small>Centro Integral de Salud</small><strong>Genaro Muñoz Hernández</strong></span>
+      <span class="identity-text"><small>{centro.tipo}</small><strong>{centro.nombre}</strong></span>
     </a>
     <button class="mobile-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-menu>Menú ☰</button>
     <nav class="main-nav" id="primary-nav" data-nav aria-label="Navegación principal">
       <a href={home}>Inicio</a>
-      <a href={siteUrl('#centro')}>El centro</a>
+      <a href={siteUrl('el-centro/')}>El centro</a>
       <a href={siteUrl('#atencion')}>Información de atención</a>
       <a href={siteUrl('#biblioteca')}>Educación en salud</a>
       <a href={siteUrl('#contacto')}>Contacto</a>

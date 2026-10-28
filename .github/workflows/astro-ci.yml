@@ -6,7 +6,10 @@ on:
   pull_request:
     paths:
       - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
       - 'package.json'
+      - 'package-lock.json'
       - 'astro.config.mjs'
       - 'tsconfig.json'
       - '.github/workflows/astro-ci.yml'
@@ -35,5 +38,7 @@ jobs:
         run: |
           test -f dist/index.html
           test -f dist/enfermedades/chagas/index.html
+          test -f dist/enfermedades/tuberculosis/index.html
+          test -f dist/el-centro/index.html
       - name: Verificar rutas públicas y contenido generado
         run: node scripts/check-output.mjs
