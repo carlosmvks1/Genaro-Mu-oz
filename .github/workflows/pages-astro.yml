@@ -5,6 +5,7 @@ on:
     paths:
       - 'src/**'
       - 'public/**'
+      - 'scripts/check-editorial.mjs'
       - 'package.json'
       - 'package-lock.json'
       - 'astro.config.mjs'
@@ -12,32 +13,69 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
   group: github-pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
-    name: Compilar para Pages
+    name: Compilar, verificar y preparar sitio público
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Control editorial antes de publicar
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Instalar dependencias
+        run: npm ci --no-audit --no-fund
+      - name: Validar tipos y fichas sanitarias
+        run: npm run check
+      - name: Control editorial y bibliografía
         run: node scripts/check-editorial.mjs
-      - name: Instalar y crear sitio Astro
-        uses: withastro/action@v6
+      - name: Generar el portal Astro
+        run: npm run build
+      - name: Comprobar páginas y rutas generadas
+        run: node scripts/check-output.mjs
+      - name: Subir artefacto para despliegue por GitHub Actions
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - name: Preparar respaldo de publicación desde la rama principal
+        run: |
+          # Si el Pages existente sigue configurado como "Deploy from a branch"
+          # publicar también los archivos estáticos en la raíz de main.
+          cp -R dist/. ./
+          touch .nojekyll
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- index.html 404.html _astro enfermedades el-centro .nojekyll
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(pages): sincronizar HTML público generado por Astro"
+            git push origin HEAD:main
+          fi
   deploy:
+    name: Desplegar mediante GitHub Actions cuando esté habilitado
     needs: build
-    name: Publicar en GitHub Pages
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Publicar
+      - name: Publicar artefacto del portal
         id: deployment
         uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - name: Mostrar estado del origen de publicación
+        run: |
+          if [ "${{ steps.deployment.outcome }}" = "success" ]; then
+            echo "GitHub Pages publicó correctamente el artefacto mediante Actions."
+          else
+            echo "::warning::Pages no aceptó el origen Actions. Se han generado los HTML en main para el origen clásico por rama."
+          fi
