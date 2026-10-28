@@ -107,8 +107,9 @@ a:focus-visible,button:focus-visible{outline:3px solid #b77a20;border-radius:3px
 .access-card{display:flex;align-items:center;gap:15px;padding:19px 20px;min-height:93px;background:#fff;border-right:1px solid var(--line);transition:background .15s}
 .access-card:last-child{border-right:0}
 .access-card:hover{background:#f3f7f7}
-.access-index{font-size:.76rem;font-weight:750;color:var(--teal);border:1px solid #c8d9d7;border-radius:2px;padding:4px 7px;align-self:flex-start}
-.access-card>span:nth-child(2){display:flex;flex:1;flex-direction:column;line-height:1.45}
+.access-icon{display:grid;place-items:center;flex:0 0 56px;width:56px;height:56px;color:var(--teal);background:#edf3ef;border-radius:50%}
+.access-icon svg{display:block;width:40px;height:40px}
+.access-card>span:nth-child(2){min-width:0;display:flex;flex:1;flex-direction:column;line-height:1.45}
 .access-card strong{font-size:.9rem;font-weight:710;color:var(--navy-deep)}
 .access-card small{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.45}
 .access-arrow{font-size:1.2rem;color:var(--teal)}
@@ -179,7 +180,6 @@ a:focus-visible,button:focus-visible{outline:3px solid #b77a20;border-radius:3px
   .hero-layout{grid-template-columns:minmax(0,1fr) minmax(250px,.72fr);gap:28px}
   .access-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .access-card{padding:14px;gap:10px}
-  .access-index{display:none}
 }
 @media(max-width:760px){
   .hero-layout{grid-template-columns:1fr;padding-block:48px 53px;gap:28px}
@@ -188,7 +188,6 @@ a:focus-visible,button:focus-visible{outline:3px solid #b77a20;border-radius:3px
   .access-grid{grid-template-columns:1fr}
   .access-card{min-height:75px;border-right:0;border-bottom:1px solid var(--line)}
   .access-card:last-child{border-bottom:0}
-  .access-index{display:inline}
   .center-layout,.care-layout{grid-template-columns:1fr;gap:28px}
   .section-title-row{display:block}
   .section-title-row>p{max-width:670px;margin-top:14px}

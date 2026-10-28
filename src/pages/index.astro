@@ -1,4 +1,7 @@
 ---
+import DoctorIcon from '../assets/healthicons/doctor.svg';
+import CalendarIcon from '../assets/healthicons/calendar.svg';
+import LocationIcon from '../assets/healthicons/location.svg';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TarjetaEnfermedad from '../components/TarjetaEnfermedad.astro';
 import { getCollection } from 'astro:content';
@@ -40,9 +43,9 @@ const enfermedades = (await getCollection('enfermedades'))
       <div class="container">
         <h2 id="acceso-title" class="access-title">Accesos principales</h2>
         <div class="access-grid">
-          <a class="access-card" href={siteUrl('nuestros-servicios/')}><span class="access-index" aria-hidden="true">01</span><span><strong>Nuestros servicios</strong><small>Atención primaria para la comunidad</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
-          <a class="access-card" href={siteUrl('antes-de-acudir/')}><span class="access-index" aria-hidden="true">02</span><span><strong>Antes de acudir</strong><small>Horario y orientación para tu visita</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
-          <a class="access-card" href={siteUrl('ubicacion-y-contacto/')}><span class="access-index" aria-hidden="true">03</span><span><strong>Ubicación y contacto</strong><small>Encontranos en Gracias, Lempira</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+          <a class="access-card" href={siteUrl('nuestros-servicios/')}><span class="access-icon" aria-hidden="true"><DoctorIcon width="40" height="40" focusable="false" /></span><span><strong>Nuestros servicios</strong><small>Atención primaria para la comunidad</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+          <a class="access-card" href={siteUrl('antes-de-acudir/')}><span class="access-icon" aria-hidden="true"><CalendarIcon width="40" height="40" focusable="false" /></span><span><strong>Antes de acudir</strong><small>Horario y orientación para tu visita</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
+          <a class="access-card" href={siteUrl('ubicacion-y-contacto/')}><span class="access-icon" aria-hidden="true"><LocationIcon width="40" height="40" focusable="false" /></span><span><strong>Ubicación y contacto</strong><small>Encontranos en Gracias, Lempira</small></span><span class="access-arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
