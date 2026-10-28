@@ -211,3 +211,14 @@ a:focus-visible,button:focus-visible{outline:3px solid #b77a20;border-radius:3px
 .directory-updated{font-size:.78rem;color:var(--muted)}
 @media(max-width:800px){.directory-grid{grid-template-columns:1fr;gap:29px}.directory-aside{max-width:none}}
 @media(max-width:550px){.directory-list div{grid-template-columns:1fr;gap:4px}.directory-list dd{overflow-wrap:anywhere}}
+
+/* Fotografías reales del establecimiento: presentación editorial discreta. */
+.institutional-photo{margin:0;background:#fff;border:1px solid var(--line)}
+.institutional-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center;background:var(--paper)}
+.institutional-photo figcaption{border-top:1px solid var(--line);padding:11px 15px;color:var(--muted);font-size:.78rem;line-height:1.5}
+.institutional-photo-home{align-self:start}
+.institutional-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.installation-section{padding-top:10px}
+.installation-section h2{margin:0 0 22px}
+@media(max-width:700px){.institutional-gallery{grid-template-columns:1fr;gap:20px}}
+@media print{.institutional-photo{break-inside:avoid}.institutional-photo img{max-width:420px}}
