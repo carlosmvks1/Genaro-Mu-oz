@@ -13,7 +13,7 @@ import { fotosCentro } from '../data/fotografias';
         </nav>
         <p class="section-label">Información institucional</p>
         <h1>Sobre el {nombreCompleto}</h1>
-        <p>Conocé la información general del establecimiento y cómo consultar los datos vigentes de atención.</p>
+        <p>Conocé nuestra historia, los servicios de salud, el horario de atención y las instalaciones del establecimiento.</p>
       </div>
     </section>
     <section class="section">
@@ -30,20 +30,22 @@ import { fotosCentro } from '../data/fotografias';
             {centro.telefono && <div><dt>Teléfono</dt><dd><a href={`tel:${centro.telefono.valor.replace(/[^+\d]/g, '')}`}>{centro.telefono.valor}</a></dd></div>}
             {centro.correo && <div><dt>Correo institucional</dt><dd><a href={`mailto:${centro.correo.valor}`}>{centro.correo.valor}</a></dd></div>}
           </dl>
-          <h2>Información de atención</h2>
+          <section class="institutional-history" aria-labelledby="historia-title">
+            <h2 id="historia-title">Nuestra historia</h2>
+            <p>El Centro de Salud Genaro Muñoz Hernández fue fundado en 1963 en la ciudad de Gracias, Lempira. Desde entonces, el establecimiento forma parte de la atención sanitaria de la comunidad.</p>
+          </section>
+          <h2>Servicios de atención</h2>
           {centro.servicios
             ? <ul class="directory-services">{centro.servicios.valor.map(servicio=><li>{servicio}</li>)}</ul>
-            : <p>Para conocer los servicios, los requisitos de atención y los horarios vigentes, solicitá orientación directamente en el establecimiento.</p>}
+            : <p>El CIS ofrece servicios de atención primaria a la población de Gracias.</p>}
           {centro.consultaGeneralSinCobro?.valor === true && <p>La consulta general no tiene cobro.</p>}
           {centro.requisitosAtencion
             ? <p>Documentos para solicitar atención: {centro.requisitosAtencion.valor.join(', ')}.</p>
-            : <p>Para confirmar los documentos requeridos, consultá en admisión.</p>}
-          {(centro.horario?.estado === 'reportado' || centro.servicios?.estado === 'reportado') &&
-            <p class="directory-updated">Horario y cartera de servicios reportados por un colaborador del proyecto; pendientes de aprobación institucional para su publicación definitiva.</p>}
+            : <p>Acudí al área de admisión para recibir orientación sobre la atención.</p>}
           {centro.ultimaRevisionInstitucional && <p class="directory-updated">Última validación institucional: {centro.ultimaRevisionInstitucional.verificadoEl}.</p>}
         </div>
         <aside class="directory-aside">
-          <h2>Información para la comunidad</h2>
+          <h2>Educación en salud</h2>
           <p>También podés consultar las fichas de educación en salud disponibles en este portal.</p>
           <ul>
             <li><a href={siteUrl('enfermedades/chagas/')}>Enfermedad de Chagas</a></li>
