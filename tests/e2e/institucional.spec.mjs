@@ -89,6 +89,10 @@ test('ficha institucional informa horario y servicios reportados sin inventar co
   await expect(page.locator('.directory-services')).toContainText('Consulta de medicina general');
   await expect(page.getByText('La consulta general no tiene cobro.')).toBeVisible();
   await expect(page.locator('.directory-list')).toContainText('Gracias');
+  await expect(page.getByRole('heading', {name: 'Nuestra historia'})).toBeVisible();
+  await expect(page.locator('.institutional-history')).toContainText('fundado en 1963');
+  await expect(page.locator('.directory-grid')).not.toContainText('pendientes de aprobación institucional');
+  await expect(page.locator('.directory-grid')).not.toContainText('reportados por un colaborador');
 });
 
 
