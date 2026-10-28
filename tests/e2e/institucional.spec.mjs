@@ -80,11 +80,14 @@ test('tuberculosis se consulta dentro del portal, sin redirección externa', asy
 });
 
 
-test('en la ficha institucional no se inventan horario, teléfono o servicios', async ({page}) => {
+test('ficha institucional informa horario y servicios reportados sin inventar contactos', async ({page}) => {
   await page.goto('el-centro/');
   await expect(page.getByRole('heading', {level:1})).toContainText('CIS Genaro Muñoz Hernández');
   await expect(page.locator('.directory-list')).not.toContainText('Teléfono');
-  await expect(page.locator('.directory-list')).not.toContainText('Horario de atención');
+  await expect(page.locator('.directory-list')).toContainText('Horario de atención');
+  await expect(page.locator('.directory-list')).toContainText('7:00 a. m. a 3:00 p. m.');
+  await expect(page.locator('.directory-services')).toContainText('Consulta de medicina general');
+  await expect(page.getByText('La consulta general no tiene cobro.')).toBeVisible();
   await expect(page.locator('.directory-list')).toContainText('Gracias');
 });
 
