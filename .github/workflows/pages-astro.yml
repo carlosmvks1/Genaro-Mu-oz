@@ -26,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Control editorial antes de publicar
+        run: node scripts/check-editorial.mjs
       - name: Instalar y crear sitio Astro
         uses: withastro/action@v6
   deploy:
