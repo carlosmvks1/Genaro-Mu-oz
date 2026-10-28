@@ -1,0 +1,42 @@
+---
+import { siteUrl } from '../lib/paths';
+const home = siteUrl('');
+---
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <span>Centro Integral de Salud</span>
+    <span class="utility-location">Gracias, Lempira · Honduras</span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="identity" href={home} aria-label="CIS Genaro Muñoz Hernández, inicio">
+      <span class="identity-symbol" aria-hidden="true"><span></span></span>
+      <span class="identity-text"><strong>CIS Genaro Muñoz Hernández</strong><small>Información y educación en salud</small></span>
+    </a>
+    <button class="mobile-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" data-menu>Menú ☰</button>
+    <nav class="main-nav" id="primary-nav" data-nav aria-label="Navegación principal">
+      <a href={home}>Inicio</a>
+      <a href={siteUrl('#centro')}>El centro</a>
+      <a href={siteUrl('#atencion')}>Atención</a>
+      <a href={siteUrl('#biblioteca')}>Educación en salud</a>
+      <a href={siteUrl('#contacto')}>Contacto</a>
+    </nav>
+  </div>
+</header>
+<script>
+  const menu = document.querySelector<HTMLButtonElement>('[data-menu]');
+  const nav = document.querySelector<HTMLElement>('[data-nav]');
+  if (menu && nav) {
+    const close = () => { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); menu.textContent = 'Menú ☰'; };
+    menu.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+      menu.textContent = open ? 'Cerrar ✕' : 'Menú ☰';
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { close(); menu.focus(); } });
+    document.addEventListener('click', e => { if (nav.classList.contains('open') && !nav.contains(e.target as Node) && !menu.contains(e.target as Node)) close(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 950) close(); });
+  }
+</script>
