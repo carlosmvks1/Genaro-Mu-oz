@@ -6,7 +6,8 @@ Portal institucional de información y educación sanitaria para el CIS Genaro M
 - **Sitio actual:** publicado en la rama `main`.
 - **Rediseño de portada:** PR #1, rama `redesign/portada-institucional`.
 - **Nueva arquitectura Astro:** PR #2, rama `architecture/astro-platform` (basada en la rama de rediseño).
-- **Edición clínica de Chagas:** `revision-clinica` hasta su aprobación por el profesional responsable.
+- **Edición clínica de Chagas y tuberculosis:** `revision-clinica` hasta su aprobación por un profesional designado.
+- **Fase 3:** contenidos internos de tuberculosis y fuente única de datos institucionales (`src/data/centro.ts`).
 
 La web pública no se modifica por los PR en borrador.
 
@@ -28,6 +29,7 @@ npm run build
 - `src/components/`: encabezado, pie y tarjetas reutilizables.
 - `src/pages/`: portada y páginas generadas de enfermedades.
 - `src/content/enfermedades/`: fichas médicas en Markdown.
+- `src/data/centro.ts`: datos institucionales verificables; servicios, horarios, contactos y dirección solo aparecen si están validados.
 - `src/content.config.ts`: esquema tipado, controles y datos obligatorios.
 - `src/styles/`: diseño institucional.
 
@@ -39,7 +41,7 @@ El sitio se compila con Astro y se publica en GitHub Pages desde un workflow que
 El flujo de publicación incluye un control editorial que bloquea las fichas médicas no aprobadas. Una vez aprobado el contenido, su archivo debe registrar `estado: aprobado`, `fechaRevisionClinica` y `responsableRevision`. Ese registro solo se realiza después de la revisión efectiva de un profesional autorizado.
 
 ## Limitaciones actuales
-La ubicación exacta, horarios, servicios, contactos, fotos y elementos de identidad institucional dependen de la información validada por el CIS. El micrositio de tuberculosis permanece enlazado externamente mientras se prepara su integración.
+La ubicación exacta, horarios, servicios, contactos, fotos y elementos de identidad institucional dependen de la información validada por el CIS. La ficha resumida de tuberculosis está integrada; el micrositio ampliado de TB continúa disponible como recurso complementario.
 
 ## Fuentes y derechos
 Las fichas citan fuentes oficiales; el código es del proyecto. La inclusión de logotipos y fotografías institucionales requiere permiso de los titulares correspondientes.
