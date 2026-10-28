@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { centro, nombreCompleto, localidad } from '../data/centro';
+import { siteUrl } from '../lib/paths';
+---
+<BaseLayout title={`El centro | ${nombreCompleto}`} description={`Información institucional del ${nombreCompleto}, ubicado en ${localidad}, Honduras.`}>
+  <main id="contenido">
+    <section class="article-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href={siteUrl('')}>Inicio</a> / El centro
+        </nav>
+        <p class="section-label">Información institucional</p>
+        <h1>Sobre el {nombreCompleto}</h1>
+        <p>Conocé la información general del establecimiento y cómo consultar los datos vigentes de atención.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container directory-grid">
+        <div>
+          <h2>Datos generales</h2>
+          <dl class="directory-list">
+            <div><dt>Nombre</dt><dd>{centro.tipo} {centro.nombre}</dd></div>
+            <div><dt>Municipio</dt><dd>{centro.municipio}</dd></div>
+            <div><dt>Departamento</dt><dd>{centro.departamento}</dd></div>
+            <div><dt>País</dt><dd>{centro.pais}</dd></div>
+            {centro.direccionExacta && <div><dt>Dirección</dt><dd>{centro.direccionExacta.valor}</dd></div>}
+            {centro.horario && <div><dt>Horario de atención</dt><dd>{centro.horario.valor}</dd></div>}
+            {centro.telefono && <div><dt>Teléfono</dt><dd><a href={`tel:${centro.telefono.valor.replace(/[^+\d]/g, '')}`}>{centro.telefono.valor}</a></dd></div>}
+            {centro.correo && <div><dt>Correo institucional</dt><dd><a href={`mailto:${centro.correo.valor}`}>{centro.correo.valor}</a></dd></div>}
+          </dl>
+          <h2>Información de atención</h2>
+          {centro.servicios
+            ? <ul class="directory-services">{centro.servicios.valor.map(servicio=><li>{servicio}</li>)}</ul>
+            : <p>Para conocer los servicios, los requisitos de atención y los horarios vigentes, solicitá orientación directamente en el establecimiento.</p>}
+          {centro.ultimaRevisionInstitucional && <p class="directory-updated">Última validación institucional: {centro.ultimaRevisionInstitucional.verificadoEl}.</p>}
+        </div>
+        <aside class="directory-aside">
+          <h2>Información para la comunidad</h2>
+          <p>También podés consultar las fichas de educación en salud disponibles en este portal.</p>
+          <ul>
+            <li><a href={siteUrl('enfermedades/chagas/')}>Enfermedad de Chagas</a></li>
+            <li><a href={siteUrl('enfermedades/tuberculosis/')}>Tuberculosis</a></li>
+          </ul>
+          <p>Estos recursos educativos no sustituyen la consulta médica.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
