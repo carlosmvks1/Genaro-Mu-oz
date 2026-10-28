@@ -3,7 +3,7 @@ import { siteUrl } from '../lib/paths';
 interface Props { slug: string; titulo: string; resumen: string; categoria: string; }
 const { slug, titulo, resumen, categoria } = Astro.props;
 ---
-<a class="topic-card chagas" href={siteUrl(`enfermedades/${slug}/`)}>
+<a class:list={['topic-card', slug]} href={siteUrl(`enfermedades/${slug}/`)}>
   <span class="topic-label">{categoria}</span>
   <h3>{titulo}</h3>
   <p>{resumen}</p>
