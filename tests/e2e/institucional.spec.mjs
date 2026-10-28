@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 
 const paths = [
   { path: './', slug: 'inicio' },
+  { path: 'el-centro/', slug: 'centro' },
   { path: 'enfermedades/chagas/', slug: 'chagas' },
   { path: 'enfermedades/tuberculosis/', slug: 'tuberculosis' },
 ];
@@ -70,4 +71,13 @@ test('tuberculosis se consulta dentro del portal, sin redirección externa', asy
   await expect(page).toHaveURL(/\/enfermedades\/tuberculosis\/$/);
   await expect(page.getByRole('heading',{level:1})).toContainText('Tuberculosis');
   await expect(page.locator('article.health-article')).toContainText('Mycobacterium tuberculosis');
+});
+
+
+test('en la ficha institucional no se inventan horario, teléfono o servicios', async ({page}) => {
+  await page.goto('el-centro/');
+  await expect(page.getByRole('heading', {level:1})).toContainText('CIS Genaro Muñoz Hernández');
+  await expect(page.locator('.directory-list')).not.toContainText('Teléfono');
+  await expect(page.locator('.directory-list')).not.toContainText('Horario de atención');
+  await expect(page.locator('.directory-list')).toContainText('Gracias');
 });
