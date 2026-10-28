@@ -1,47 +1,45 @@
 # CIS Genaro Muñoz Hernández
 
-Portal institucional de información y educación sanitaria para el CIS Genaro Muñoz Hernández, Gracias, Lempira, Honduras.
+Portal de información institucional y educación en salud del **Centro Integral de Salud Genaro Muñoz Hernández**, Gracias, Lempira, Honduras.
 
-## Estado del proyecto
-- **Sitio actual:** publicado en la rama `main`.
-- **Rediseño de portada:** PR #1, rama `redesign/portada-institucional`.
-- **Nueva arquitectura Astro:** PR #2, rama `architecture/astro-platform` (basada en la rama de rediseño).
-- **Edición clínica de Chagas y tuberculosis:** `revision-clinica` hasta su aprobación por un profesional designado.
-- **Fase 3:** contenidos internos de tuberculosis y fuente única de datos institucionales (`src/data/centro.ts`).
+**Sitio:** https://carlosmvks1.github.io/Genaro-Mu-oz/
 
-La web pública no se modifica por los PR en borrador.
+## Contenido
+- Inicio, orientación de atención y servicios del establecimiento.
+- Información institucional, reseña histórica e imágenes propias del CIS.
+- Biblioteca de educación en salud con las fichas de Chagas y tuberculosis.
+- Navegación adaptable a móvil, tableta y computadora.
 
-## Tecnologías
-Astro 7, TypeScript, Markdown, colección de contenido validada con Zod, CSS modular y GitHub Actions. El contenido se genera como HTML estático.
+## Tecnología
+- Astro 7 y TypeScript: sitio estático, rápido y modular.
+- Colecciones Markdown validadas con Zod.
+- CSS institucional accesible, sin dependencia de JavaScript para leer el contenido.
+- GitHub Actions: pruebas de tipos, compilación, rutas y navegación real con Chromium/axe.
+- GitHub Pages para publicación.
 
-## Comenzar
-Requiere Node.js 24 y npm.
+## Desarrollo local
+
+Requiere Node.js 24.
 
 ```bash
 npm ci
 npm run dev
 npm run check
 npm run build
+node scripts/check-output.mjs
 ```
 
-## Estructura
-- `src/layouts/`: plantilla general.
-- `src/components/`: encabezado, pie y tarjetas reutilizables.
-- `src/pages/`: portada y páginas generadas de enfermedades.
-- `src/content/enfermedades/`: fichas médicas en Markdown.
-- `src/data/centro.ts`: datos institucionales verificables; servicios, horarios, contactos y dirección solo aparecen si están validados.
-- `src/content.config.ts`: esquema tipado, controles y datos obligatorios.
-- `src/styles/`: diseño institucional.
+## Publicación
+Los cambios se revisan en ramas de trabajo y se integran mediante Pull Request a `main`. El flujo `.github/workflows/pages-astro.yml` compila Astro, genera las páginas estáticas y ofrece compatibilidad tanto con despliegue GitHub Actions como con el origen clásico por rama.
 
-Para más detalles, ver [ARQUITECTURA.md](ARQUITECTURA.md).
+La rama `backup/main-antes-astro-2026-10-28` conserva una referencia de la web HTML anterior, anterior a la migración.
 
-## Despliegue
-El sitio se compila con Astro y se publica en GitHub Pages desde un workflow que solo se ejecuta sobre `main`. Antes de activar este despliegue, el repositorio debe utilizar **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+## Revisión de contenidos
+Las fichas médicas contienen fuentes y estados editoriales registrados en `src/content/enfermedades/`. La información del CIS se centraliza en `src/data/centro.ts` para poder corregirse en un solo lugar.
 
-El flujo de publicación incluye un control editorial que bloquea las fichas médicas no aprobadas. Una vez aprobado el contenido, su archivo debe registrar `estado: aprobado`, `fechaRevisionClinica` y `responsableRevision`. Ese registro solo se realiza después de la revisión efectiva de un profesional autorizado.
+La bibliografía, la investigación documental y la propuesta para la dirección se mantienen como documentación de proyecto, no como advertencias visibles para el visitante:
+- [Investigación institucional](INVESTIGACION-CIS-GRACIAS-2026.md)
+- [Propuesta para la dirección](PROPUESTA-PARA-DIRECCION.md)
+- [Arquitectura](ARQUITECTURA.md)
 
-## Limitaciones actuales
-La ubicación exacta, horarios, servicios, contactos, fotos y elementos de identidad institucional dependen de la información validada por el CIS. La ficha resumida de tuberculosis está integrada; el micrositio ampliado de TB continúa disponible como recurso complementario.
-
-## Fuentes y derechos
-Las fichas citan fuentes oficiales; el código es del proyecto. La inclusión de logotipos y fotografías institucionales requiere permiso de los titulares correspondientes.
+Para la publicación bajo identidad y dominio institucional definitivos, corresponde aplicar las correcciones y autorizaciones de la dirección y establecer responsables permanentes de contenido.

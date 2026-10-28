@@ -20,7 +20,11 @@ const required = [
   [tuberculosis, 'Organización Mundial de la Salud', 'Fuentes de tuberculosis'],
   [tuberculosis, 'Fuentes y revisión del contenido', 'Transparencia editorial de tuberculosis'],
   [centro, 'Datos generales', 'Ficha institucional'],
-  [centro, 'Para conocer los servicios', 'Información institucional sin datos ficticios'],
+  [centro, 'Fotografías del establecimiento', 'Galería institucional'],
+  [inicio, 'Acceso al establecimiento', 'Fotografía en portada'],
+  [centro, 'Consulta de medicina general', 'Cartera de servicios reportada'],
+  [centro, '7:00 a. m. a 3:00 p. m.', 'Horario reportado'],
+  [centro, 'La consulta general no tiene cobro.', 'Información de consulta general'],
 ];
 for (const [html, needle, label] of required) {
   if (!html.includes(needle)) errors.push(label);

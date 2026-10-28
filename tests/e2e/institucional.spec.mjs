@@ -19,8 +19,14 @@ for (const { path, slug } of paths) {
     await expect(page.locator('header .identity')).toBeVisible();
     await expect(page.locator('footer')).toBeVisible();
     await page.locator('footer').scrollIntoViewIfNeeded();
+    // Forzar el disparo de lazy-loading antes de capturar la página completa.
+    // Sin ello las capturas largas pueden mostrar espacios vacíos aunque la foto funcione.
+    for (const img of await page.locator('img').all()) {
+      await img.scrollIntoViewIfNeeded();
+      await expect.poll(() => img.evaluate(el => el.complete && el.naturalWidth > 0)).toBe(true);
+    }
     await page.evaluate(async () => { await document.fonts.ready; window.scrollTo({top:0,left:0,behavior:'instant'}); });
-    await page.waitForTimeout(150);
+    await page.waitForTimeout(200);
     await page.screenshot({ path: testInfo.outputPath(`${slug}-${testInfo.project.name}.png`), fullPage: true, animations: 'disabled' });
     const overflow = await page.evaluate(() => ({
       width: window.innerWidth,
@@ -74,10 +80,34 @@ test('tuberculosis se consulta dentro del portal, sin redirección externa', asy
 });
 
 
-test('en la ficha institucional no se inventan horario, teléfono o servicios', async ({page}) => {
+test('ficha institucional informa horario y servicios reportados sin inventar contactos', async ({page}) => {
   await page.goto('el-centro/');
   await expect(page.getByRole('heading', {level:1})).toContainText('CIS Genaro Muñoz Hernández');
   await expect(page.locator('.directory-list')).not.toContainText('Teléfono');
-  await expect(page.locator('.directory-list')).not.toContainText('Horario de atención');
+  await expect(page.locator('.directory-list')).toContainText('Horario de atención');
+  await expect(page.locator('.directory-list')).toContainText('7:00 a. m. a 3:00 p. m.');
+  await expect(page.locator('.directory-services')).toContainText('Consulta de medicina general');
+  await expect(page.getByText('La consulta general no tiene cobro.')).toBeVisible();
   await expect(page.locator('.directory-list')).toContainText('Gracias');
+  await expect(page.getByRole('heading', {name: 'Nuestra historia'})).toBeVisible();
+  await expect(page.locator('.institutional-history')).toContainText('fundado en 1963');
+  await expect(page.locator('.directory-grid')).not.toContainText('pendientes de aprobación institucional');
+  await expect(page.locator('.directory-grid')).not.toContainText('reportados por un colaborador');
+});
+
+
+test('fotografías institucionales cargan correctamente y tienen texto alternativo', async ({ page }) => {
+  await page.goto('el-centro/');
+  const photos = page.locator('.institutional-gallery img');
+  await expect(photos).toHaveCount(2);
+  for (const image of await photos.all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect(image).toHaveAttribute('alt', /.+/);
+    await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+  }
+  await page.goto('./');
+  const front = page.locator('.institutional-photo-home img');
+  await expect(front).toHaveCount(1);
+  await front.scrollIntoViewIfNeeded();
+  await expect.poll(() => front.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
 });
