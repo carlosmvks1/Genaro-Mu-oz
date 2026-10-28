@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TarjetaEnfermedad from '../components/TarjetaEnfermedad.astro';
 import { getCollection } from 'astro:content';
+import { centro, nombreCompleto, localidad } from '../data/centro';
 const enfermedades = (await getCollection('enfermedades'))
   .filter(entry => entry.data.estado !== 'borrador')
   .sort((a, b) => a.data.orden - b.data.orden);
@@ -11,8 +12,8 @@ const enfermedades = (await getCollection('enfermedades'))
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-layout">
         <div class="hero-content">
-          <p class="section-label">Centro Integral de Salud · Gracias, Lempira</p>
-          <h1 id="hero-title">CIS Genaro Muñoz Hernández</h1>
+          <p class="section-label">{centro.tipo} · {localidad}</p>
+          <h1 id="hero-title">{nombreCompleto}</h1>
           <p class="hero-summary">Información del establecimiento, orientación para la comunidad y recursos de educación en salud.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#atencion">Información de atención <span aria-hidden="true">→</span></a>
@@ -22,9 +23,9 @@ const enfermedades = (await getCollection('enfermedades'))
         <aside class="hero-info" aria-label="Información general del CIS">
           <h2>Información general</h2>
           <dl>
-            <div><dt>Establecimiento</dt><dd>Centro Integral de Salud</dd></div>
-            <div><dt>Localidad</dt><dd>Gracias, Lempira, Honduras</dd></div>
-            <div><dt>Información de servicios y horarios</dt><dd>Confirmar directamente en el establecimiento</dd></div>
+            <div><dt>Establecimiento</dt><dd>{centro.tipo}</dd></div>
+            <div><dt>Localidad</dt><dd>{localidad}, {centro.pais}</dd></div>
+            <div><dt>Horario de atención</dt><dd>{centro.horario?.valor ?? 'Consultar en el establecimiento'}</dd></div>
           </dl>
           <a href="#centro">Conocer el centro <span aria-hidden="true">→</span></a>
         </aside>
@@ -46,8 +47,8 @@ const enfermedades = (await getCollection('enfermedades'))
       <div class="container center-layout">
         <div class="center-body">
           <p class="section-label">El establecimiento</p>
-          <h2 id="centro-title">Sobre el CIS Genaro Muñoz Hernández</h2>
-          <p>Este espacio digital reúne información del Centro Integral de Salud Genaro Muñoz Hernández, ubicado en Gracias, Lempira.</p>
+          <h2 id="centro-title">Sobre el {nombreCompleto}</h2>
+          <p>Este espacio digital reúne información del {centro.tipo} {centro.nombre}, ubicado en {localidad}.</p>
           <p>Su propósito es facilitar el acceso a información del establecimiento y materiales educativos sobre prevención, síntomas y atención oportuna.</p>
         </div>
         <aside class="center-aside" aria-label="Información para la comunidad">
@@ -66,12 +67,6 @@ const enfermedades = (await getCollection('enfermedades'))
         </div>
         <div class="topic-grid">
           {enfermedades.map((entry) => <TarjetaEnfermedad slug={entry.id} titulo={entry.data.titulo} resumen={entry.data.resumen} categoria={entry.data.categoria} />)}
-          <a class="topic-card" href="https://carlosmvks1.github.io/tb-gracias/" target="_blank" rel="noopener noreferrer">
-            <span class="topic-label">Enfermedades transmisibles</span>
-            <h3>Tuberculosis</h3>
-            <p>Síntomas, transmisión, prevención y la importancia de recibir atención.</p>
-            <span class="topic-action">Consultar recurso <span aria-hidden="true">↗</span><span class="sr-only"> (se abre en una nueva pestaña)</span></span>
-          </a>
         </div>
         <p class="library-note">Los contenidos tienen finalidad educativa y deben interpretarse junto con la orientación del personal de salud.</p>
       </div>
@@ -86,11 +81,22 @@ const enfermedades = (await getCollection('enfermedades'))
         </div>
         <div class="info-panel">
           <div class="info-row">
-            <div><span class="info-eyebrow">Ubicación general</span><strong>Gracias, Lempira</strong><p>Honduras</p></div>
+            <div><span class="info-eyebrow">{centro.direccionExacta ? 'Dirección del establecimiento' : 'Ubicación general'}</span><strong>{centro.direccionExacta?.valor ?? localidad}</strong><p>{centro.pais}</p></div>
           </div>
           <div class="info-row">
-            <div><span class="info-eyebrow">Servicios y horarios</span><strong>Información vigente</strong><p>Consultar presencialmente en el CIS.</p></div>
+            <div><span class="info-eyebrow">Servicios y horarios</span>
+              {centro.servicios
+                ? <><strong>Servicios de atención</strong><ul>{centro.servicios.valor.map((servicio) => <li>{servicio}</li>)}</ul></>
+                : <><strong>Información de servicios</strong><p>Consultar directamente en el CIS.</p></>}
+              {centro.horario && <p><strong>Horario:</strong> {centro.horario.valor}</p>}
+            </div>
           </div>
+          {(centro.telefono || centro.correo) && <div class="info-row">
+            <div><span class="info-eyebrow">Contacto institucional</span>
+              {centro.telefono && <p><a class="inline-link" href={`tel:${centro.telefono.valor.replace(/[^+\d]/g, '')}`}>{centro.telefono.valor}</a></p>}
+              {centro.correo && <p><a class="inline-link" href={`mailto:${centro.correo.valor}`}>{centro.correo.valor}</a></p>}
+            </div>
+          </div>}
           <div class="info-row">
             <div><span class="info-eyebrow">Recursos educativos</span><strong>Biblioteca de salud</strong><p><a class="inline-link" href="#biblioteca">Ver temas disponibles <span aria-hidden="true">→</span></a></p></div>
           </div>
