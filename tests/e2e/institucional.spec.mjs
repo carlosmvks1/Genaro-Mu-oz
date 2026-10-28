@@ -81,3 +81,20 @@ test('en la ficha institucional no se inventan horario, teléfono o servicios', 
   await expect(page.locator('.directory-list')).not.toContainText('Horario de atención');
   await expect(page.locator('.directory-list')).toContainText('Gracias');
 });
+
+
+test('fotografías institucionales cargan correctamente y tienen texto alternativo', async ({ page }) => {
+  await page.goto('el-centro/');
+  const photos = page.locator('.institutional-gallery img');
+  await expect(photos).toHaveCount(2);
+  for (const image of await photos.all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect(image).toHaveAttribute('alt', /.+/);
+    await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+  }
+  await page.goto('./');
+  const front = page.locator('.institutional-photo-home img');
+  await expect(front).toHaveCount(1);
+  await front.scrollIntoViewIfNeeded();
+  await expect.poll(() => front.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+});
