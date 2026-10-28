@@ -16,7 +16,7 @@ if (/estado:\s*['"]reportado['"]/.test(institution)) {
   pending.push('Datos de horario, servicios o cobros reportados sin aval institucional');
 }
 if (pending.length) {
-  console.error('Publicación detenida: hay contenidos pendientes de aprobación clínica:');
+  console.error('Publicación detenida: hay contenidos pendientes de aprobación clínica o institucional:');
   for (const item of pending) console.error(' -', item);
   process.exit(1);
 }
