@@ -8,15 +8,14 @@
  * No interpretar datos generales de SESAL o FONAC como inventario de servicios
  * vigentes del CIS. No introducir teléfonos, personal ni contactos supuestos.
  */
-export type EstadoVerificacion = 'reportado' | 'aprobado';
-
 export type DatoInstitucional<T> = {
   valor: T;
-  verificadoEl: string; // Fecha de recepción del reporte, YYYY-MM-DD
+  verificadoEl: string; // Fecha de recepción o validación YYYY-MM-DD
   fuente: string;
-  estado: EstadoVerificacion;
-  validadoPor?: string; // Solo con aprobación de la dirección
-};
+} & (
+  | { estado: 'reportado'; validadoPor?: never }
+  | { estado: 'aprobado'; validadoPor: string }
+);
 
 export interface DatosCentro {
   nombre: string;
