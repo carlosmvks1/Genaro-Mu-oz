@@ -1,4 +1,4 @@
-/* Capa editorial compartida. Fotografías propias, sin recursos externos. */
+/* Capa editorial compartida. Fotografías propias y pictogramas locales Health Icons CC0. */
 :root {
   --navy: #142e48;
   --navy-deep: #10263c;
@@ -44,7 +44,6 @@ body { background: #fffefa; }
 .access-grid { border-inline: 0; }
 .access-card { background: transparent; padding: 24px; min-height: 105px; }
 .access-card:first-child { padding-left: 0; }
-.access-index { border: 0; padding: 2px 0; font: italic 1.05rem var(--serif); }
 .access-card strong { font-size: 1rem; }
 .access-card small { margin-top: 7px; }
 .section { padding-block: 96px; }
@@ -91,7 +90,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid #b77a20; outline-offs
   .center-layout { grid-template-columns: 1fr; gap: 32px; }
   .section-title-row { margin-bottom: 28px; }
   .access-card, .access-card:first-child { padding: 20px 0; }
-  .access-index { width: 26px; }
   .access-section { padding-block: 30px; }
   .footer-main { padding-block: 42px; }
 }
