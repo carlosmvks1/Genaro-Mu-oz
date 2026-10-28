@@ -4,6 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 const paths = [
   { path: './', slug: 'inicio' },
   { path: 'enfermedades/chagas/', slug: 'chagas' },
+  { path: 'enfermedades/tuberculosis/', slug: 'tuberculosis' },
 ];
 
 for (const { path, slug } of paths) {
@@ -60,4 +61,13 @@ test('el enlace de Chagas desde la portada lleva a la ficha', async ({page}) => 
   await page.locator('a.topic-card.chagas').click();
   await expect(page).toHaveURL(/\/enfermedades\/chagas\/$/);
   await expect(page.getByRole('heading',{level:1})).toContainText('Chagas');
+});
+
+
+test('tuberculosis se consulta dentro del portal, sin redirección externa', async ({page}) => {
+  await page.goto('./');
+  await page.locator('a.topic-card[href$="/enfermedades/tuberculosis/"]').click();
+  await expect(page).toHaveURL(/\/enfermedades\/tuberculosis\/$/);
+  await expect(page.getByRole('heading',{level:1})).toContainText('Tuberculosis');
+  await expect(page.locator('article.health-article')).toContainText('Mycobacterium tuberculosis');
 });
