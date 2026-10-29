@@ -1,87 +1,151 @@
 ---
 titulo: "Enfermedad de Chagas"
-resumen: "Cómo se transmite, cuáles son sus manifestaciones y qué medidas ayudan a prevenir la infección."
+resumen: "Conocé la chinche picuda, cómo proteger tu casa y cuándo pedir una revisión de salud."
 categoria: "Transmisibles"
 estado: "revision-clinica"
 fechaActualizacion: 2026-10-28
 orden: 1
 fuentes:
-  - titulo: "Organización Mundial de la Salud — Enfermedad de Chagas"
-    url: "https://www.who.int/es/news-room/fact-sheets/detail/chagas-disease-(american-trypanosomiasis)"
+  - titulo: "Organización Mundial de la Salud — Enfermedad de Chagas (2026)"
+    url: "https://www.who.int/es/news-room/fact-sheets/detail/chagas-disease-%28american-trypanosomiasis%29"
   - titulo: "Organización Panamericana de la Salud — Enfermedad de Chagas"
     url: "https://www.paho.org/es/temas/enfermedad-chagas"
+  - titulo: "Organización Panamericana de la Salud — Guía para el diagnóstico y tratamiento, segunda edición (2026)"
+    url: "https://www.paho.org/es/documentos/guia-para-diagnostico-tratamiento-enfermedad-chagas-segunda-edicion"
   - titulo: "Centros para el Control y Prevención de Enfermedades — Prevención de Chagas"
     url: "https://www.cdc.gov/chagas/es/prevention/como-prevenir-la-enfermedad-de-chagas.html"
+  - titulo: "OPS — Folleto educativo de Honduras: Sin chinches, no hay Chagas"
+    url: "https://www.paho.org/es/documentos/folleto-honduras-sin-chinches-no-hay-chagas"
 ---
 
-## ¿Qué es la enfermedad de Chagas?
+## Cinco mensajes para recordar
 
-La enfermedad de Chagas es una infección causada por el parásito *Trypanosoma cruzi*. Puede afectar a personas que viven o han vivido en regiones donde circula el parásito, como algunos países de América Latina, incluido Honduras.
+- **La chinche picuda puede transmitir el Chagas.**
+- **No todas las chinches están infectadas.** Encontrar una no significa que alguien tenga la enfermedad.
+- **Una persona puede tener Chagas sin sentirse enferma.**
+- **Cuidar la vivienda ayuda a prevenirlo.**
+- **El Chagas tiene tratamiento.** Si creés que estuviste expuesto, consultá al personal de salud.
 
-En muchas personas, la infección no produce síntomas evidentes durante años. En otras, puede provocar problemas cardíacos o digestivos a largo plazo.
+## ¿Qué es el Chagas?
 
-> **Importante:** sentirse bien no descarta la infección. El diagnóstico requiere valoración médica y pruebas específicas.
+Es una enfermedad causada por un parásito, un ser muy pequeño llamado *Trypanosoma cruzi*.
 
-## ¿Cómo se transmite?
+Algunas personas se enferman poco después del contagio. Otras pueden pasar muchos años sin molestias. Con el tiempo, la infección puede dañar el corazón y, a veces, afectar la digestión.
 
-Una vía de transmisión es el contacto con heces de determinadas chinches triatominas infectadas. Estas pueden depositar heces cerca de la picadura; si las heces llegan a una herida, a los ojos o a la boca, el parásito puede entrar al organismo.
+**Aunque te sintás bien, podés necesitar una prueba si estuviste expuesto.**
 
-La picadura por sí sola no significa que una persona se haya infectado. No todos los insectos similares son vectores ni todos los vectores están infectados.
+## ¿Qué es la chinche picuda y cómo transmite el Chagas?
 
-También puede transmitirse de madre a hijo durante el embarazo o el parto; mediante alimentos o bebidas contaminados; transfusiones o trasplantes sin las medidas de control correspondientes; o por accidentes de laboratorio.
+La **chinche picuda** es un insecto que puede esconderse en grietas de paredes, techos o lugares cercanos a la casa, como gallineros y corrales.
 
-**No se transmite por abrazar, conversar o compartir espacios cotidianos.**
+Al picar, una chinche infectada puede dejar sus **heces (excremento)** cerca de la picadura. Si esas heces entran en una herida, en los ojos o en la boca, el parásito puede entrar al cuerpo. Esto puede pasar al rascarse o frotarse la piel.
 
-## ¿Qué síntomas pueden presentarse?
+**No es la picadura por sí sola la que transmite el Chagas.** Tampoco todas las chinches picudas están infectadas.
 
-Durante la fase inicial, algunas personas presentan fiebre, cansancio, dolor de cabeza, dolores musculares o inflamación en la zona de entrada del parásito. Puede producirse hinchazón de un párpado, aunque no es un signo presente en todos los casos.
+### ¿Se transmite de otras maneras?
 
-En la fase crónica, muchas personas no presentan síntomas. Otras pueden desarrollar palpitaciones, desmayos, dificultad para respirar o problemas digestivos años después.
+Sí. Una madre con la infección puede transmitirla a su bebé durante el embarazo o el parto. También puede ocurrir por alimentos o bebidas contaminados y, en situaciones donde fallan los controles de seguridad, por transfusiones o trasplantes.
 
-Estos síntomas no bastan para diagnosticar Chagas y también pueden corresponder a otras enfermedades.
+**El Chagas no se transmite por abrazar, saludar, compartir platos o vivir con una persona que tiene la enfermedad.**
 
-## ¿Cómo podemos prevenirlo?
+## ¿Qué hago si encuentro una chinche sospechosa?
 
-- Reparar grietas de paredes y techos que puedan servir de refugio a los insectos, cuando sea posible.
-- Mantener ordenados los alrededores de la vivienda y evitar acumulaciones de materiales cerca de los dormitorios.
-- Usar mosquiteros y adoptar medidas para reducir el contacto con insectos durante el descanso.
-- Mantener prácticas seguras de higiene, preparación y almacenamiento de alimentos y bebidas.
-- Solicitar orientación al personal sanitario para las actividades de vigilancia y control vectorial.
+1. **No la agarrés ni la aplastés con las manos.**
+2. Si podés hacerlo sin tocarla directamente, colocala en un recipiente cerrado usando una bolsa o una barrera protectora. No es obligatorio recogerla si hacerlo te pone en riesgo.
+3. **Informá al personal del centro de salud.** Podrán orientarte sobre cómo identificarla o reportarla.
+4. Revisá si hay grietas u otros lugares donde se puedan esconder más insectos.
 
-El uso de insecticidas debe seguir indicaciones de los programas de control y personal competente. No se recomienda aplicar productos potencialmente tóxicos por cuenta propia.
+No usés venenos o insecticidas por tu cuenta. Pedí orientación al personal encargado del control de insectos.
 
-## ¿Cuándo debemos acudir a un establecimiento de salud?
+## ¿Qué síntomas puede causar?
 
-Buscá atención si creés haber tenido exposición al insecto transmisor, si presentás síntomas después de una posible exposición o si tenés antecedentes familiares o personales que ameriten evaluación.
+Al inicio puede haber fiebre, cansancio, dolor de cuerpo o hinchazón cerca de la picadura. En algunos casos se hincha un párpado.
 
-La valoración también es importante durante la atención prenatal cuando existen antecedentes de exposición o infección, así como para personas con diagnóstico previo que necesitan seguimiento.
+Pero muchas personas **no presentan ningún síntoma**.
 
-**Señales de alarma:** dolor fuerte en el pecho, desmayo, dificultad importante para respirar o pérdida de conciencia requieren atención urgente, independientemente de la causa.
+Años después, algunas personas pueden tener palpitaciones, desmayos, falta de aire o problemas para tragar y evacuar.
 
-## ¿Cómo se diagnostica y trata?
+Estos problemas también pueden deberse a otras enfermedades. **Para saber si alguien tiene Chagas se necesitan pruebas y una evaluación médica.**
 
-El personal médico determinará qué pruebas corresponden según la fase y los antecedentes. En la infección crónica, el diagnóstico suele apoyarse en pruebas serológicas realizadas mediante más de un método.
+## Chagas, embarazo y niñez
 
-Existen tratamientos antiparasitarios, como benznidazol y nifurtimox. Su indicación y vigilancia requieren atención médica; no deben tomarse sin prescripción.
+Si estás embarazada y tenés Chagas, o creés que pudiste estar expuesta, contáselo al personal de salud durante tu control prenatal.
+
+**Los bebés de madres con Chagas deben ser evaluados**, aunque parezcan sanos. El equipo de salud también puede indicar pruebas para los otros hijos.
+
+La infección puede tratarse en los niños. Detectarla temprano mejora las posibilidades de curación.
+
+## ¿Cómo proteger a la familia?
+
+- Tapá las grietas de las paredes y techos cuando sea posible.
+- Evitá guardar leña, tejas y objetos amontonados dentro o cerca de los dormitorios.
+- Usá mosquiteros o mallas si están a tu alcance.
+- Mantené limpios los alrededores de la casa y los lugares donde duermen los animales.
+- Cuidá la limpieza de los alimentos y del agua que se utiliza para prepararlos.
+- Avisá al personal de salud si encontrás chinches sospechosas.
+
+**No tenés que hacer todas las mejoras de una sola vez.** Empezá por las que sean posibles para tu familia y buscá orientación comunitaria.
+
+## ¿Cuándo ir al centro de salud?
+
+Pedí orientación si encontraste una chinche sospechosa, si viviste en una casa donde había muchas, si alguien de tu familia tiene Chagas o si tenés dudas sobre una posible exposición.
+
+Si ya tenés Chagas, **seguí con tus controles aunque te sintás bien**.
+
+**Buscá atención urgente** si hay desmayo, dolor fuerte de pecho, mucha dificultad para respirar o pérdida de conciencia.
+
+## ¿Cómo se sabe si alguien tiene Chagas? ¿Tiene tratamiento?
+
+Se hacen pruebas de sangre. Cuando la infección lleva mucho tiempo, **se necesitan al menos dos pruebas de sangre diferentes para confirmarla**. El personal de salud indica cuáles corresponden.
+
+Existen medicinas especiales para tratar el Chagas, como **benznidazol y nifurtimox**. No todas las personas reciben el mismo tratamiento: un médico debe decidirlo según cada caso.
+
+**No te automediqués.** Aun después del diagnóstico o tratamiento, pueden ser necesarios controles de salud.
 
 ## Preguntas frecuentes
 
-### ¿Todas las chinches transmiten Chagas?
+### ¿Si me pica una chinche, seguro tengo Chagas?
 
-No. La transmisión está relacionada con especies de triatominos infectados con *T. cruzi*. La identificación de insectos debe realizarse con apoyo técnico cuando sea necesario.
+No. No todas las chinches transmiten la infección. Consultá si hubo una posible exposición.
 
-### ¿Puedo tener Chagas aunque me sienta bien?
+### ¿Puedo tener Chagas y verme sano?
 
-Sí. Muchas personas permanecen sin síntomas durante períodos prolongados.
+Sí. Algunas personas pasan años sin síntomas.
 
-### ¿Se transmite por contacto cotidiano?
+### ¿Se contagia por vivir con alguien que tiene Chagas?
 
-No. Los abrazos, los saludos y la convivencia habitual no transmiten la enfermedad.
+No. Compartir la casa, los platos o un abrazo no transmite la enfermedad.
 
-### ¿Existe una vacuna?
+### ¿Hay vacuna contra el Chagas?
 
-Actualmente no existe una vacuna disponible para prevenir la enfermedad de Chagas.
+No. Por eso es importante evitar el contacto con las chinches que pueden transmitirlo.
 
-### ¿Tiene tratamiento?
+### ¿El Chagas tiene cura?
 
-Sí. Existen medicamentos antiparasitarios; la decisión de indicarlos depende de la evaluación clínica.
+El tratamiento puede curar la infección, especialmente cuando se inicia temprano. El personal médico valora cada situación.
+
+---
+
+<h2 id="guia-promotores">Guía para promotores: charla de 10 a 15 minutos</h2>
+
+La charla debe usar palabras conocidas y ejemplos de las viviendas de la comunidad. **El promotor informa y orienta; no hace diagnósticos ni receta medicinas.**
+
+1. **Preguntá (2 minutos):** «¿Conocen la chinche picuda? ¿En qué lugares de la casa la han visto?».
+2. **Explicá (3 minutos):** «Una chinche infectada puede dejar excremento cerca de la picadura. Ese excremento puede transmitir Chagas si entra en una herida, los ojos o la boca».
+3. **Mostrá cómo prevenir (3 minutos):** conversá sobre grietas, leña cerca de los dormitorios, mosquiteros y limpieza de los alrededores. Escuchá qué cambios son posibles para las familias.
+4. **Recordá cuándo consultar (3 minutos):** «Podés tener Chagas sin sentirte enfermo. Las mujeres embarazadas y los hijos de madres con Chagas necesitan orientación del personal de salud».
+5. **Cerrá (2 minutos):** pedí a dos participantes que expliquen qué harían al encontrar una chinche y qué medida preventiva pueden aplicar en su hogar.
+
+### Tres preguntas para el grupo
+
+- **¿Todas las chinches tienen Chagas?** No.
+- **¿Si alguien se ve sano, significa que no tiene Chagas?** No.
+- **¿Qué hacemos si encontramos una chinche picuda?** No la tocamos directamente y pedimos orientación al centro de salud.
+
+### Materiales de apoyo para las charlas
+
+- [Folleto de Honduras «Sin chinches, no hay Chagas» — OPS](https://www.paho.org/es/documentos/folleto-honduras-sin-chinches-no-hay-chagas).
+- [Rotafolio del Programa Nacional de Chagas de Honduras — Secretaría de Salud / JICA](https://www.jica.go.jp/project/honduras/0701409/04/pdf/rotafolio_paginas.pdf).
+- [Recursos para imprimir sobre Chagas — CDC](https://www.cdc.gov/chagas/es/php/resources/recursos-sobre-la-enfermedad-de-chagas.html).
+
+Estas láminas ayudan a mostrar cómo luce el insecto. La identificación de una chinche encontrada en casa debe realizarla personal capacitado.
