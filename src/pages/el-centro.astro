@@ -34,6 +34,11 @@ import { fotosCentro } from '../data/fotografias';
             <h2 id="historia-title">Nuestra historia</h2>
             <p>El Centro de Salud Genaro Muñoz Hernández fue fundado en 1963 en la ciudad de Gracias, Lempira. Desde entonces, el establecimiento forma parte de la atención sanitaria de la comunidad.</p>
           </section>
+          <section class="institutional-community" aria-labelledby="comunidad-title">
+            <h2 id="comunidad-title">Trabajo comunitario</h2>
+            <p>Además de la atención en el establecimiento, el CIS realiza visitas domiciliarias y seguimiento de personas con enfermedades crónicas en Gracias y las comunidades cercanas.</p>
+            <p>También desarrolla actividades de Atención Integral a la Niñez en la Comunidad (AIN-C), que incluyen vigilancia del crecimiento infantil y orientación a las familias.</p>
+          </section>
           <h2>Servicios de atención</h2>
           {centro.servicios
             ? <ul class="directory-services">{centro.servicios.valor.map(servicio=><li>{servicio}</li>)}</ul>

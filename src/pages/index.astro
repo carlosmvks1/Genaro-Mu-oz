@@ -23,7 +23,7 @@ const enfermedades = (await getCollection('enfermedades'))
         <img class="photo-hero-image" src={fotosCentro.entrada} srcset={`${fotosCentro.entrada1200} 1200w, ${fotosCentro.entrada1920} 1920w, ${fotosCentro.entrada} 4160w`} sizes="100vw" width="4160" height="3120" loading="eager" fetchpriority="high" decoding="async" alt="Fachada y acceso al CIS en Gracias, Lempira, con el rótulo «CIS Gracias» sobre la entrada." />
         <div class="container photo-hero-caption">
           <p class="photo-hero-message">Salud cerca de nuestra comunidad.</p>
-          <p>Atención primaria y orientación para las familias de Gracias, Lempira.</p>
+          <p>Atención integral, prevención y seguimiento de familias de Gracias y comunidades cercanas.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#atencion">Información de atención <span aria-hidden="true">→</span></a>
             <a class="button button-secondary" href="#biblioteca">Biblioteca de salud <span aria-hidden="true">→</span></a>
@@ -55,8 +55,8 @@ const enfermedades = (await getCollection('enfermedades'))
         <div class="center-body">
           <p class="section-label">El establecimiento</p>
           <h2 id="centro-title">Sobre el {nombreCompleto}</h2>
-          <p>El {centro.tipo} {centro.nombre} brinda servicios de atención primaria a la población de {localidad}.</p>
-          <p>Fundado en 1963, el establecimiento desarrolla actividades de atención y promoción de la salud. En este portal encontrás su cartera de servicios y recursos educativos sobre prevención de enfermedades.</p>
+          <p>El {centro.tipo} {centro.nombre} brinda atención primaria a las familias de Gracias y comunidades cercanas, tanto dentro del establecimiento como mediante actividades de salud comunitaria.</p>
+          <p>Fundado en 1963, el CIS desarrolla consultas, visitas domiciliarias, seguimiento de personas con enfermedades crónicas y actividades de Atención Integral a la Niñez en la Comunidad (AIN-C).</p>
           <a class="text-link" href={siteUrl('el-centro/')}>Consultar la ficha del establecimiento <span aria-hidden="true">→</span></a>
         </div>
         {fotosCentro.exteriores

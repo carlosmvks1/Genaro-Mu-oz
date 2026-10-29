@@ -25,6 +25,10 @@ const required = [
   [centro, 'Consulta de medicina general', 'Cartera de servicios reportada'],
   [centro, '7:00 a. m. a 3:00 p. m.', 'Horario reportado'],
   [centro, 'La consulta general no tiene cobro.', 'Información de consulta general'],
+  [centro, 'Trabajo comunitario', 'Trabajo territorial del CIS'],
+  [centro, 'enfermedades crónicas', 'Seguimiento de personas con enfermedades crónicas'],
+  [centro, 'AIN-C', 'Actividades comunitarias de niñez'],
+  [inicio, 'Gracias y comunidades cercanas', 'Cobertura geográfica de la portada'],
 ];
 for (const [html, needle, label] of required) {
   if (!html.includes(needle)) errors.push(label);

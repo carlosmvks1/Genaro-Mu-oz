@@ -150,3 +150,17 @@ test('fase 4: datos confirmados y fotografías distintas', async ({page}) => {
   await expect(page.locator('.directory-services li')).toHaveCount(10);
   await expect(page.locator('main')).toContainText('La consulta general no tiene cobro.');
 });
+
+test('la portada y las páginas institucionales representan la cobertura comunitaria', async ({page}) => {
+  await page.goto('./');
+  await expect(page.locator('.photo-hero-caption')).toContainText('Gracias y comunidades cercanas');
+  await expect(page.locator('#centro')).toContainText('visitas domiciliarias');
+  await expect(page.locator('#centro')).toContainText('AIN-C');
+  await page.goto('el-centro/');
+  await expect(page.getByRole('heading', {name: 'Trabajo comunitario'})).toBeVisible();
+  await expect(page.locator('.institutional-community')).toContainText('enfermedades crónicas');
+  await expect(page.locator('.institutional-community')).toContainText('crecimiento infantil');
+  await page.goto('nuestros-servicios/');
+  await expect(page.getByRole('heading', {name: 'Atención en la comunidad'})).toBeVisible();
+  await expect(page.locator('main')).toContainText('AIN-C');
+});
