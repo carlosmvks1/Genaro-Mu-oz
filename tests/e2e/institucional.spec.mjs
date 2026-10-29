@@ -164,3 +164,22 @@ test('la portada y las páginas institucionales representan la cobertura comunit
   await expect(page.getByRole('heading', {name: 'Atención en la comunidad'})).toBeVisible();
   await expect(page.locator('main')).toContainText('AIN-C');
 });
+
+test('pulido: mapa oficial facilitado y vista previa social', async ({page}) => {
+  await page.goto('./');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://carlosmvks1.github.io/Genaro-Mu-oz/og-cis.jpg');
+  await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content','1200');
+  await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content','630');
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href','/Genaro-Mu-oz/favicon.svg');
+  await expect(page.locator('.photo-hero-details a[href="https://maps.app.goo.gl/nR8PFKsEPDxh2Z8N9"]')).toBeVisible();
+  const social = await page.request.get('og-cis.jpg');
+  expect(social.ok()).toBeTruthy();
+  expect(social.headers()['content-type']).toContain('image/jpeg');
+  await page.goto('ubicacion-y-contacto/');
+  const map = page.getByRole('link',{name:/Cómo llegar con Google Maps/});
+  await expect(map).toHaveAttribute('href','https://maps.app.goo.gl/nR8PFKsEPDxh2Z8N9');
+  await expect(map).toHaveAttribute('target','_blank');
+  await expect(map).toHaveAttribute('rel',/noopener noreferrer/);
+  await page.goto('chagas.html');
+  await expect(page).toHaveURL(/enfermedades\/chagas\/$/);
+});
