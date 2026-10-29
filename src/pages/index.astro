@@ -34,7 +34,7 @@ const enfermedades = (await getCollection('enfermedades'))
         <div class="container photo-hero-details-inner">
           <p><span>Horario de atención</span><strong>{centro.horario?.valor ?? 'Consultar en el establecimiento'}</strong></p>
           <p><span>Ubicación</span><strong>{localidad}, {centro.pais}</strong></p>
-          <a class="text-link" href={siteUrl('el-centro/')}>Conocé el centro <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="https://maps.app.goo.gl/nR8PFKsEPDxh2Z8N9" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span><span class="sr-only"> (se abre Google Maps en una pestaña nueva)</span></a>
         </div>
       </div>
     </section>
