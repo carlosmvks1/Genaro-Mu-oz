@@ -22,6 +22,7 @@ const fecha = new Intl.DateTimeFormat('es-HN', { year:'numeric',month:'long',day
       <span class="health-badge">{d.categoria}</span>
       <h1>{d.titulo}</h1>
       <p>{d.resumen}</p>
+      {entry.id === 'chagas' && <a class="health-promoter-link" href="#guia-promotores">Material para promotores: guía de charla comunitaria <span aria-hidden="true">↓</span></a>}
     </div></section>
     <div class="container article-grid">
       <article class="health-article">
