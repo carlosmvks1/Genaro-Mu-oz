@@ -35,6 +35,14 @@ jobs:
         run: npm install --no-save --package-lock=false --no-audit --no-fund @playwright/test@1.64.1 @axe-core/playwright@4.14.0
       - name: Instalar Chromium y dependencias del sistema
         run: npx playwright install chromium --with-deps
+      - name: Preparar Python para imagen de WhatsApp
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generar imagen para compartir el portal
+        run: |
+          python -m pip install --disable-pip-version-check Pillow==12.0.0
+          python scripts/create-social-image.py
       - name: Compilar la web
         run: npm run build
       - name: Probar diseño, navegación y accesibilidad

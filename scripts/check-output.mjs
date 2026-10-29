@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 
 const inicio = readFileSync('dist/index.html', 'utf8');
 const chagas = readFileSync('dist/enfermedades/chagas/index.html', 'utf8');
@@ -11,6 +11,9 @@ const required = [
   [inicio, '/Genaro-Mu-oz/enfermedades/chagas/', 'Ruta pública de Chagas'],
   [inicio, '/Genaro-Mu-oz/enfermedades/tuberculosis/', 'Ruta pública de tuberculosis'],
   [inicio, '/Genaro-Mu-oz/el-centro/', 'Ruta pública de información del centro'],
+  [inicio, 'https://maps.app.goo.gl/nR8PFKsEPDxh2Z8N9', 'Indicaciones directas desde portada'],
+  [inicio, 'https://carlosmvks1.github.io/Genaro-Mu-oz/og-cis.jpg', 'Imagen de WhatsApp y redes sociales'],
+  [inicio, '/Genaro-Mu-oz/favicon.svg', 'Icono institucional del navegador'],
   [inicio, 'id="biblioteca"', 'Biblioteca de salud'],
   [inicio, '/Genaro-Mu-oz/', 'Prefijo GitHub Pages'],
   [chagas, 'Trypanosoma', 'Contenido médico de Chagas'],
@@ -50,3 +53,10 @@ for (const route of ['nuestros-servicios', 'antes-de-acudir', 'ubicacion-y-conta
   const html = readFileSync(`dist/${route}/index.html`, 'utf8');
   if (!html.includes('<main id="contenido"') || !inicio.includes(`/Genaro-Mu-oz/${route}/`)) throw new Error(`Página o enlace ausente: ${route}`);
 }
+
+// Recursos de primera impresión: no publicar enlaces a imágenes inexistentes.
+for (const resource of ['dist/og-cis.jpg', 'dist/favicon.svg', 'dist/chagas.html']) {
+  if (!existsSync(resource) || statSync(resource).size === 0) throw new Error(`Falta recurso público: ${resource}`);
+}
+const ubicacion = readFileSync('dist/ubicacion-y-contacto/index.html', 'utf8');
+if (!ubicacion.includes('https://maps.app.goo.gl/nR8PFKsEPDxh2Z8N9')) throw new Error('Falta ubicación en Google Maps');
