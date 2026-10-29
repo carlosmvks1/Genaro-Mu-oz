@@ -6,6 +6,9 @@ import { centro } from '../data/centro';
   <h2>Atención para nuestra comunidad</h2>
   <ul class="directory-services">{centro.servicios?.valor.map(servicio => <li>{servicio}</li>)}</ul>
   {centro.consultaGeneralSinCobro?.valor === true && <p><strong>La consulta general no tiene cobro.</strong></p>}
+  <h2>Atención en la comunidad</h2>
+  <p>El trabajo del CIS también incluye visitas domiciliarias, seguimiento de personas con enfermedades crónicas y actividades comunitarias de promoción y prevención de la salud.</p>
+  <p>Mediante Atención Integral a la Niñez en la Comunidad (AIN-C) se realiza seguimiento del crecimiento infantil y orientación a las familias.</p>
   <h2>Horario de atención</h2><p>{centro.horario?.valor}</p>
   <p>Acudí al área de admisión para recibir orientación sobre el servicio que necesitás.</p>
 </VisitorLayout>
