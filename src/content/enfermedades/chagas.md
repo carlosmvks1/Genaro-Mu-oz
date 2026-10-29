@@ -6,6 +6,8 @@ estado: "revision-clinica"
 fechaActualizacion: 2026-10-28
 orden: 1
 fuentes:
+  - titulo: "Secretaría de Salud de Honduras / JICA — Rotafolio, láminas 1, 11 y 12"
+    url: "https://www.jica.go.jp/project/honduras/0701409/04/pdf/rotafolio_paginas.pdf"
   - titulo: "Organización Mundial de la Salud — Enfermedad de Chagas"
     url: "https://www.who.int/es/news-room/fact-sheets/detail/chagas-disease-(american-trypanosomiasis)"
   - titulo: "Organización Panamericana de la Salud — Enfermedad de Chagas"
@@ -31,6 +33,49 @@ La picadura por sí sola no significa que una persona se haya infectado. No todo
 También puede transmitirse de madre a hijo durante el embarazo o el parto; mediante alimentos o bebidas contaminados; transfusiones o trasplantes sin las medidas de control correspondientes; o por accidentes de laboratorio.
 
 **No se transmite por abrazar, conversar o compartir espacios cotidianos.**
+
+## ¿Cómo son las chinches picudas?
+
+El rotafolio de Honduras presenta estas dos especies. Las fotos sirven para orientarte: **no confirman por sí solas qué insecto encontraste ni si está infectado**. No necesitás reconocer la especie para avisar.
+
+<div class="chagas-gallery">
+  <figure>
+    <img src="/Genaro-Mu-oz/images/chagas/rhodnius-prolixus.jpg" alt="Rhodnius prolixus adulto, de cuerpo alargado, cabeza estrecha y seis patas largas." width="920" height="860" loading="lazy" decoding="async" />
+    <figcaption><strong><i>Rhodnius prolixus</i></strong><span>Ejemplar adulto. Foto: Dr. Erwin Huebner, Universidad de Manitoba. <a href="https://commons.wikimedia.org/wiki/File:Rhodnius_prolixus70-300.jpg">Fuente y permiso: dominio público</a>.</span></figcaption>
+  </figure>
+  <figure>
+    <img src="/Genaro-Mu-oz/images/chagas/triatoma-dimidiata.jpg" alt="Triatoma dimidiata: adultos con alas y bordes amarillos y oscuros, crías sin alas y huevos." width="642" height="481" loading="lazy" decoding="async" />
+    <figcaption><strong><i>Triatoma dimidiata</i></strong><span>Adultos, crías y huevos. Foto: María Carlota Monroy Escobar y Dulce María Bustamante Zamora, Universidad de San Carlos de Guatemala. <a href="https://commons.wikimedia.org/wiki/File:Tdimidiata-all.jpg">Fuente y permiso: dominio público</a>.</span></figcaption>
+  </figure>
+</div>
+
+Son fotos de referencia, no tomadas en el CIS ni presentadas como imágenes oficiales hondureñas. Se muestran completas, sin recortes, y no a tamaño real.
+
+### ¿Dónde pueden esconderse?
+
+En grietas de paredes, techos vegetales, detrás de muebles, marcos de puertas y ventanas; también en gallineros, nidos y montones de leña o tejas. No metás las manos en escondites para buscarlas.
+
+## ¿Qué hago si encuentro una chinche picuda?
+
+> **No la toqués con la mano. Si no podés recogerla sin riesgo, dejala y avisá al voluntario de salud o a la Unidad de Salud más cercana.**
+
+Si podés hacerlo sin tocarla directamente y sin exponerte:
+
+1. Ponela con cuidado en una bolsa plástica.
+2. Si tenés la etiqueta de recolección, completala y colocala dentro.
+3. Cerrá la bolsa con un nudo, **sin hacerle agujeros**.
+4. Guardala en un lugar seguro, fuera del alcance de niños y animales.
+5. Llevala al voluntario de salud o a la Unidad de Salud para su identificación. **Puede estar viva o muerta**; no necesitás mantenerla viva.
+
+Encontrar una chinche no confirma que alguien tenga Chagas. Consultá al personal de salud sobre la necesidad de evaluación de la familia.
+
+### Para promotores: orientar y dar seguimiento
+
+Reforzá el aviso sin captura insegura. La identificación de la especie corresponde al técnico de Salud Ambiental. Coordiná la entrega y el seguimiento con la Unidad de Salud; confirmá allí el procedimiento local.
+
+**Para conversar con la familia:** “Si no podés recogerla sin riesgo, ¿a quién avisarías?”.
+
+Orientación adaptada del [rotafolio de la Secretaría de Salud de Honduras / JICA, láminas 1, 11 y 12](https://www.jica.go.jp/project/honduras/0701409/04/pdf/rotafolio_paginas.pdf#page=22). Consultá también [los materiales educativos de Honduras en la BVS](https://www.bvs.hn/E/chagas.html).
 
 ## ¿Qué síntomas pueden presentarse?
 
