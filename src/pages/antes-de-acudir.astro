@@ -10,4 +10,5 @@ import { siteUrl } from '../lib/paths';
   <h2>Orientación al llegar</h2><p>Acudí al área de admisión para recibir orientación sobre la atención y los trámites del servicio que necesitás.</p>
   {centro.requisitosAtencion && <><h2>Requisitos de atención</h2><ul>{centro.requisitosAtencion.valor.map(requisito => <li>{requisito}</li>)}</ul></>}
   <p><a class="text-link" href={siteUrl('nuestros-servicios/')}>Consultar nuestros servicios <span aria-hidden="true">→</span></a></p>
+  <p><a class="text-link" href={siteUrl('ubicacion-y-contacto/')}>Ubicación y cómo llegar <span aria-hidden="true">→</span></a></p>
 </VisitorLayout>
