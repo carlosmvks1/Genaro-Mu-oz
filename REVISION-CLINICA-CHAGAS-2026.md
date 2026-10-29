@@ -38,3 +38,19 @@
 
 ## Estado de despliegue
 Este documento pertenece a la rama `content/chagas-pacientes-promotores-2026-10-28`. Su propósito es facilitar una revisión real antes de reemplazar la ficha que está pública. La web de Chagas actual permanece sin cambios hasta integrar la propuesta.
+
+## Adaptación al público rural (29 de octubre de 2026)
+
+Se revisó la ficha para **lenguaje claro y lectura comunitaria**, sin eliminar la información importante para la seguridad. Se acortó el texto, se conservaron las frases «chinche picuda», «herida», «prueba de sangre» y «centro de salud», y se redujo el uso de términos como «vector», «serología» y «fase crónica».
+
+Criterios editoriales:
+- Una idea por frase. Preferir verbos de acción: «tapá», «avisá», «consultá».
+- Usar «heces (excremento)» cuando sea importante comprender cómo ocurre el contagio.
+- Mantener el nombre científico únicamente cuando aporta precisión.
+- Explicar que **no toda picadura significa contagio** y que la infección puede pasar inadvertida.
+- Explicar las dos pruebas de sangre necesarias para infección de larga duración, sin exigir que el lector conozca el término «serología».
+- Dar acciones posibles para familias con recursos limitados, sin culpar a nadie por el estado de su vivienda.
+- Separar un guion de 10–15 minutos para promotores del texto de consulta general.
+- Preferir materiales visuales auténticos de Honduras y comprobar que las preguntas de cierre se entiendan mediante una charla piloto.
+
+**Pendiente:** que el médico designado revise el contenido y que un promotor local compruebe la comprensión con familias antes de aprobar la publicación. No cambiar el estado editorial antes de esa revisión.
