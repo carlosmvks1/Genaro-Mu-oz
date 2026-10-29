@@ -19,7 +19,7 @@ const required = [
   [chagas, 'Trypanosoma', 'Contenido médico de Chagas'],
   [chagas, 'Chagas, embarazo y niñez', 'Detección maternoinfantil'],
   [chagas, 'guia-promotores', 'Guía para promotores de salud'],
-  [chagas, 'al menos dos pruebas serológicas', 'Diagnóstico crónico con dos pruebas'],
+  [chagas, 'al menos dos pruebas de sangre', 'Diagnóstico crónico con dos pruebas'],
   [chagas, 'Organización Panamericana de la Salud', 'Fuentes médicas'],
   [chagas, 'Fuentes y revisión del contenido', 'Transparencia editorial'],
   [tuberculosis, 'Mycobacterium', 'Contenido médico de tuberculosis'],
