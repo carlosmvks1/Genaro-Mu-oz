@@ -189,12 +189,12 @@ test('Chagas: contenido educativo para familias y guía accesible para promotore
   await expect(page.getByRole('heading', {name:'Cinco mensajes para recordar'})).toBeVisible();
   await expect(page.getByRole('heading', {name:/chinche picuda/})).toBeVisible();
   await expect(page.getByRole('heading', {name:'Chagas, embarazo y niñez'})).toBeVisible();
-  await expect(page.locator('article')).toContainText('al menos dos pruebas serológicas diferentes');
+  await expect(page.locator('article')).toContainText('al menos dos pruebas de sangre diferentes');
   const promoter = page.getByRole('link',{name:/Material para promotores/});
   await promoter.click();
   await expect(page).toHaveURL(/#guia-promotores$/);
   await expect(page.locator('#guia-promotores')).toBeVisible();
   await expect(page.locator('article')).toContainText('10 a 15 minutos');
   await expect(page.getByRole('link',{name:/Rotafolio del Programa Nacional de Chagas/})).toHaveAttribute('href',/jica.go.jp/);
-  await expect(page.locator('article')).toContainText('heces infectadas');
+  await expect(page.locator('article')).toContainText('heces (excremento)');
 });
